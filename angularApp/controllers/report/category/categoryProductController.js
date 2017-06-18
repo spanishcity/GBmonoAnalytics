@@ -75,9 +75,64 @@
         ]
 
         // retreive product data and binding it into kendo grid
-        function categoryGrid() {
+        function categoryGrid(){
+            $scope.fn = {
+                toggleDetailColum: function(){
+                    $scope.showDetailColum = !$scope.showDetailColum;
+                }
+            }
+
             // init kendo ui grid with product data
-            vm.mainGridOptions = {
+            $scope.tableData = [{
+                ranking:1,
+                productName: "花王1",
+                productImg: "Product/4901301335647/4901301335647.jpg",
+                activePopulation: parseInt(Math.random() * 5000 + 1),
+                activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 99 + 1),
+                attentionIndex: parseInt(Math.random() * 5 + 1),
+                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                ranking: 2,
+                productName: "花王2",
+                productImg: "Product/4901301334084/4901301334084.jpg",
+                activePopulation: parseInt(Math.random() * 5000 + 1),
+                activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 99 + 1),
+                attentionIndex: parseInt(Math.random() * 5 + 1),
+                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                ranking: 3,
+                productName: "花王3",
+                productImg: "Product/4901301334060/4901301334060.jpg",
+                activePopulation: parseInt(Math.random() * 5000 + 1),
+                activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 99 + 1),
+                attentionIndex: parseInt(Math.random() * 5 + 1),
+                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                ranking:4,
+                productName: "花王1",
+                productImg: "Product/4901301335647/4901301335647.jpg",
+                activePopulation: parseInt(Math.random() * 5000 + 1),
+                activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 99 + 1),
+                attentionIndex: parseInt(Math.random() * 5 + 1),
+                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }];
+            /*vm.mainGridOptions = {
                 dataSource: {
                     transport: {
                         read: function (e) {
@@ -102,7 +157,7 @@
                                 activePopulation: 2000,
                                 attentionIndex: 52,
                                 linkGrowth: "1.2%"
-                            },]
+                            }]
                             e.success(data)
                             //    productDataFactory.search(vm.searchModel)
                             //        .success(function (data) {
@@ -114,7 +169,7 @@
                     }
                 },
                 sortable: true,
-                height: 580,
+                // height: '510',
                 filterable: false,
                 columns: [
                     {
@@ -135,9 +190,9 @@
                     },
                     {
                         field: "linkGrowth", title: "环比增幅", width: 200
-                    },
+                    }
                 ]
-            };
+            };*/
         }
 
         function categoryFilterGrid() {
