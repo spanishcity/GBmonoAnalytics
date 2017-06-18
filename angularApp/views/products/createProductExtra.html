@@ -1,0 +1,164 @@
+﻿<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a ng-href="#/">主页</a>
+        </li>
+
+        <li>
+            <a ng-href="#/products">产品管理</a>
+        </li>
+        <li class="active">添加产品图片</li>
+    </ul><!-- /.breadcrumb -->
+</div>
+
+<!-- view -->
+<div class="page-content">
+    <!-- product image-->
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">添加产品图片</h4>
+
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main no-padding-left no-padding-right">
+
+                        <form class="form-horizontal" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right">图片类型</label>
+                                <div class="col-sm-9">
+                                    <select class="form-control"
+                                            ng-model="vm.selectedImgTypeId"
+                                            ng-change="vm.imageTypeChanged()">
+                                        <option value="1">商品图片</option>
+                                        <option value="2">使用说明图片</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label no-padding-right"> 上传图片</label>
+
+                                <div class="col-md-9">
+                                    <input name="files"
+                                           type="file"
+                                           kendo-upload
+                                           k-async="{ saveUrl: fileUploadUrl, autoUpload: true,withCredentials:false }"
+                                           k-select="vm.onSelect"
+                                           k-error="vm.onError"
+                                           k-success="vm.onSuccess"                                           
+                                           k-multiple="false"
+                                          />
+                                </div>
+                            </div>                            
+                        </form>
+                        <div class="row">
+                            <div class="col-xs-12">
+
+                                <ul class="ace-thumbnails clearfix">
+
+                                    <li ng-repeat="img in vm.images">
+                                        <a href="" data-rel="colorbox">
+                                            <img style="width:200px;height:200px;" ng-src="{{vm.imgUrl}}/{{img.fileName}}" />
+                                            <div class="text">
+                                                <div class="inner">{{ img.name }}</div>
+                                            </div>
+                                        </a>
+
+                                        <div class="tools tools-bottom">
+                                            <a href="">
+                                                <i class="ace-icon fa fa-pencil"></i>
+                                            </a>
+
+                                            <a href="">
+                                                <i class="ace-icon fa fa-times red"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="col-md-6 col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">可购入实体店</h4>
+
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+
+
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main no-padding-left no-padding-right">
+                        <table class="table table-striped table-bordered  table-hover">
+                            <thead>
+                                <tr>
+                                    <th>零售商名称</th>
+                                    <th>国家</th>
+                                    <th>州</th>
+                                    <th>城市</th>
+                                    <th>地址</th>
+                                    <th>经度</th>
+                                    <th>维度</th>                                                                        
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">可购入网店</h4>
+
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+
+
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main no-padding-left no-padding-right">
+                        <table class="table table-striped table-bordered  table-hover">
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>网址</th>
+                                    <th>Logo</th>
+                                </tr>
+                            </thead>
+
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+</div>

@@ -1,0 +1,61 @@
+﻿<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">品类</h4>
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="reload">
+                            <i class="ace-icon fa fa-refresh"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main padding-18 no-padding-left no-padding-right">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div kendo-grid="grid"
+                                     k-options="vm.categoryFilterGridOptions">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!--<p>
+                            <a class="btn btn-info" ng-href="#/products/create">
+                                <i class="ace-icon fa fa-pencil align-top bigger-125"></i>
+                            </a>
+
+                        </p>-->
+                        <div class="row margin-top-10">
+                            <div class="col-xs-12">
+                                <div kendo-grid="grid"
+                                     k-options="vm.mainGridOptions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--暂时先空着，先做列表-->
+<!--filter window -->
+<!--<div kendo-window="vm.winFilter" k-position="{ top: 120, left: '40%' }"
+     k-width="550" k-visible="false" k-modal="true">
+    <div class="form-group">
+        <label class="col-md-2 control-label"></label>
+        <div class="col-md-8">
+            <button type="button" class="btn btn-primary btn-lg"
+                    ng-click="vm.search()" >
+                <i class="zmdi zmdi-edit"></i> 确定
+            </button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-default btn-lg"
+                    ng-click="vm.winFilter.close();">
+                <i class="zmdi zmdi-close"></i> 关闭
+            </button>
+        </div>
+    </div>
+    
+</div>-->

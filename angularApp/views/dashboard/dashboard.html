@@ -1,0 +1,89 @@
+﻿<div class="page-header">
+    <h1>
+        后台管理面板
+        <small>
+            <i class="ace-icon fa fa-angle-double-right"></i>
+            统计概览
+        </small>
+    </h1>
+</div>
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-4 col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter">
+                        
+                        总计
+                    </h4>
+
+                    <div class="widget-toolbar">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body" id="widget_site">
+                    <div class="widget-main padding-10">
+                        <table class="table table-bordered table-striped">
+                            <thead class="thin-border-bottom">
+                                <tr>
+                                    <th>
+                                        <i class="ace-icon fa fa-caret-right blue"></i> 名称
+                                    </th>
+
+                                    <th class="hidden-480">
+                                        <i class="ace-icon fa fa-caret-right blue"></i> 总计
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="stats in vm.siteStatsItems">
+                                    <td>{{ stats.name }}</td>
+                                    <td>{{ stats.value | number }}   </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-8 col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header widget-header-flat">
+                    <h4 class="widget-title lighter">
+                        <!--<i class="ace-icon fa fa-signal orange"></i>-->
+                        商品分类总计
+                    </h4>
+
+                    <div class="widget-toolbar">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body" id="widget_product_count">
+                    <div class="widget-main padding-10" id="kendo-pic">
+                        <div kendo-chart
+                             k-legend="{ position: 'bottom' }"
+                             k-series-defaults="{ type: 'column' }"
+                             k-series="[
+                                 { field: 'productCount', name: '商品数量', gap: 0.2 }
+                             ]"
+                             k-category-axis="{ field: 'category', majorGridLines: {visible: false }, labels: {rotation: 30 } }"
+                             k-tooltip="{visible: true, format: '商品总计: {0:n0}'}"
+                             k-data-source="vm.productCountItems"
+                             class="chart"
+                             k-theme="'material'"
+                             style="height: 380px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

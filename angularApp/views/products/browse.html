@@ -1,0 +1,65 @@
+﻿<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a ng-href="#/">主页</a>
+        </li>
+
+        <li>
+            <a href="#">产品管理</a>
+        </li>
+        <li class="active">产品浏览</li>
+    </ul><!-- /.breadcrumb -->
+</div>
+
+<!-- view -->
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter"> {{ vm.category.parentCategory.parentCategory.name}} > {{ vm.category.parentCategory.name}} > {{vm.category.name}}</h4>
+
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main padding-18 no-padding-left no-padding-right">                    
+                        <p>
+                            <a class="btn btn-info" ng-href="#/products/create">
+                                <i class="ace-icon fa fa-pencil align-top bigger-125"></i>                              
+                            </a>
+
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div kendo-grid="grid"
+                                     k-options="vm.mainGridOptions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- tags window -->
+<div kendo-window="winTag" k-position="{ top: 120, left: '40%' }"
+     k-width="550" k-height="280" k-visible="false" k-modal="true">
+
+    <select kendo-multi-select="mSelect" k-options="vm.selectOptions" k-ng-model="vm.selectedTagIds"></select>
+    <br /><br />
+    <button class="btn btn-primary btn-lg"
+            ng-click="vm.saveTags()">
+        <i class="fa fa-save"></i> Save
+    </button>
+</div>

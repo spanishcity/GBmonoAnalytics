@@ -1,0 +1,77 @@
+﻿<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a ng-href="#/">主页</a>
+        </li>
+        <li>
+            <a href="#">用户</a>
+        </li>
+        <li class="active">后台用户</li>
+    </ul><!-- /.breadcrumb -->
+</div>
+<!-- view -->
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">用户</h4>
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="reload">
+                            <i class="ace-icon fa fa-refresh"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body" style="text-align:right;">
+                    <kendo-button class="k-primary" ng-click="vm.addAccount('account/add')" style="margin-top:10px;">
+                        新建用户
+                    </kendo-button> 
+                    <div class="widget-main no-padding-left no-padding-right">
+                        <!--<div class="row">
+                            <div class="col-md-3 col-xs-12">
+                                <select class="form-control" ng-model="vm.search.type">
+                                    <option value="1">条形码</option>
+                                    <option value="2">商品代码(10位)</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 col-xs-12">
+                                <input type="text" class="form-control" ng-model="vm.search.value" />
+                            </div>
+                            <div class="col-md-3 col-xs-12">
+                                <button class="btn btn-primary btn-sm"
+                                        ng-click="vm.reload()">
+                                    <i class="fa fa-search bigger-125"></i>
+                                </button>
+                            </div>
+                        </div>-->
+                        <br />
+                        <!--<p>
+                            <a class="btn btn-info" ng-href="#/products/create">
+                                <i class="ace-icon fa fa-pencil align-top bigger-125"></i>
+                            </a>
+
+                        </p>-->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div kendo-grid="grid"
+                                     k-options="vm.mainGridOptions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- tags window -->
+<!--<div kendo-window="winTag" k-position="{ top: 120, left: '40%' }"
+     k-width="550" k-height="280" k-visible="false" k-modal="true">
+    <select kendo-multi-select="mSelect" k-options="selectOptions" k-ng-model="vm.selectedTagIds"></select>
+    <br /><br />
+    <button class="btn btn-primary btn-lg"
+            ng-click="vm.saveTags()">
+        <i class="fa fa-save"></i> Save
+    </button>
+</div>-->

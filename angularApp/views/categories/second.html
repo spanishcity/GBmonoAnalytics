@@ -1,0 +1,104 @@
+﻿<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a ng-href="#/">主页</a>
+        </li>
+
+        <li>
+            <a href="">品类管理</a>
+        </li>
+    </ul><!-- /.breadcrumb -->
+</div>
+
+<!-- view -->
+<div class="page-content">
+    <div class="row">
+        <div class="col-md-10 col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter"> {{ vm.parentCategory.name }} ( {{ vm.parentCategory.categoryCode }} )</h4>
+
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="widget-body">
+                    <div class="widget-main padding-18 no-padding-left no-padding-right">
+                        <p>
+                            <btn class="btn btn-info" ng-click="">
+                                <i class="ace-icon fa fa-pencil align-top bigger-125"></i>
+                            </btn>
+
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div kendo-grid="grid"
+                                     k-options="vm.mainGridOptions">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- edit window -->
+    <div kendo-window="vm.winEdit" k-position="{ top: 120, left: '40%' }"
+         k-width="550" k-visible="false" k-modal="true">
+        <div class="form-horizontal" ng-form="formedit">
+            <div class="form-group"
+                 ng-class="{ 'has-error': formedit.codeEdit.$dirty && formedit.codeEdit.$error.required }">
+                <label class="col-md-2 control-label"> 大分类 </label>
+                <div class="col-md-8">
+                    <select class="form-control"
+                            ng-options="cate.categoryId as cate.name for cate in vm.topCategories"
+                            ng-model="vm.editCategory.parentId"
+                            ></select>
+                </div>
+            </div>
+
+            <div class="form-group"
+                 ng-class="{ 'has-error': formedit.codeEdit.$dirty && formedit.codeEdit.$error.required }">
+                <label class="col-md-2 control-label"> 代码 </label>
+                <div class="col-md-8">
+                    <div class="fg-line">
+                        <input type="text" class="form-control" name="codeEdit"
+                               ng-model="vm.editCategory.categoryCode"
+                               required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group"
+                 ng-class="{ 'has-error': formedit.nameEdit.$dirty && formedit.nameEdit.$error.required }">
+                <label class="col-md-2 control-label"> 名称 </label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" name="nameEdit"
+                           ng-model="vm.editCategory.name"
+                           required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label"></label>
+                <div class="col-md-8">
+                    <button type="button" class="btn btn-primary btn-lg"
+                            ng-click="vm.update()"
+                            ng-disabled="formedit.$invalid">
+                        <i class="zmdi zmdi-edit"></i> 更新
+                    </button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-default btn-lg"
+                            ng-click="vm.winEdit.close();">
+                        <i class="zmdi zmdi-close"></i> 关闭
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

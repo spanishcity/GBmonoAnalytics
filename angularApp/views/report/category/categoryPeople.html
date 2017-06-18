@@ -1,0 +1,95 @@
+﻿
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-body">
+                    <div class="widget-main padding-18 no-padding-left no-padding-right">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div kendo-grid="grid"
+                                     k-options="vm.categoryFilterGridOptions">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--<div class="row">
+                            <div class="col-md-3 col-xs-3">
+                                <div class="form-group">
+                                    <input kendo-date-picker
+                                           k-format="'yyyy-MM-dd'"
+                                           style="width: 100%;"
+                                           ng-model="vm.filter.from" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-3">
+                                <div class="form-group">
+                                    <input kendo-date-picker
+                                           k-format="'yyyy-MM-dd'"
+                                           style="width: 100%;"
+                                           ng-model="vm.filter.to" />
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-xs-12">
+                                <select class="form-control"
+                                        ng-options="type.value as type.name for type in vm.searchType"
+                                        ng-model="vm.searchTypeValue"></select>
+                            </div>
+                            <div class="col-md-3 col-xs-12">
+                                <button class="btn btn-primary btn-sm"
+                                        ng-click="">
+                                    <i class="fa fa-search bigger-125"></i>
+                                </button>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row margin-top-10">
+
+        <div class="col-6" id="widget_product_count">
+            <div class="card">
+                <div class="card-header">
+                    性别
+                </div>
+                <div class="card-block">
+                    <div id="chartSex" style="height:300px"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-6" id="widget_product_count">
+
+            <div class="card">
+                <div class="card-header">
+                    年龄分布
+                </div>
+                <div class="card-block">
+                    <div id="chartAge" style="height:300px"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    地区分布
+                </div>
+                <div class="card-block">
+                    <div id="chartArea" style="height:500px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

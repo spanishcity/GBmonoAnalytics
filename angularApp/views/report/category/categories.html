@@ -1,0 +1,58 @@
+﻿<div class="breadcrumbs" id="breadcrumbs">
+    <ul class="breadcrumb">
+        <li>
+            <i class="ace-icon fa fa-home home-icon"></i>
+            <a ng-href="#/">主页</a>
+        </li>
+        <li>
+            <a href="#">品类排行</a>
+        </li>
+    </ul><!-- /.breadcrumb -->
+</div>
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="">最近 30 天</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="">最近2个月</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="">最近3个月</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="">最近6个月</a></div>
+            <div class="col-md-2 col-xs-12 categoryTop-line">
+                <select id="nnn" class="col-md-12 col-xs-12 "
+                ng-options="date for date in vm.date"
+                ng-model="vm.dateTime"
+                ng-change="vm.dateChange()"></select>
+            </div>
+           <div class="col-md-2 col-xs-12 categoryTop-line">
+            <select id="nnn" class="col-md-12 col-xs-12"
+                ng-options="category for category in vm.categories"
+                ng-model="vm.categoryType"
+                ng-change="vm.categoryChange()"></select>
+           </div>
+            
+        </div>
+    </div>
+
+    <div class="row margin-top-10">
+        <div class="col-12" id="widget_product_count">
+            <div class="card">
+                <div class="card-header">
+                    品类排行
+                </div>
+                <div class="card-block">
+                    <div id="chartCategroy" style="height:300px"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div kendo-grid="grid"
+                 k-options="vm.mainGridOptions">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

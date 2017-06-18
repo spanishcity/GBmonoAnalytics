@@ -1,0 +1,74 @@
+﻿
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近 30 天</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近2个月</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近3个月</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近6个月</a></div>
+            <div class="col-md-2 col-xs-12 categoryTop-line">
+                <select id="nnn" class="col-md-12 col-xs-12 "
+                        ng-options="date for date in vm.date"
+                        ng-model="vm.dateTime"
+                        ng-change="vm.dateChange()"></select>
+            </div>
+
+        </div>
+    </div>
+    <div class="row margin-top-10">
+
+        <div class="col-6" id="widget_product_count">
+            <div class="card">
+                <div class="card-header">
+                    性别
+                </div>
+                <div class="card-block">
+                    <div id="chartSex" style="height:300px"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-6" id="widget_product_count">
+
+            <div class="card">
+                <div class="card-header">
+                    年龄分布
+                </div>
+                <div class="card-block">
+                    <div id="chartAge" style="height:300px"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-6">
+            <div class="card">                
+                <div class="card-header">
+                    地区分布
+                </div>
+                <div class="card-block">
+                    <div id="chartArea" style="height:500px"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    用户兴趣
+                </div>
+                <div class="card-block">
+                    <div id="chartCatery" style="height:500px"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
