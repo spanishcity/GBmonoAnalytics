@@ -71,13 +71,24 @@
                                                     <td role="gridcell">
                                                         <div class="product-grid-img" style="background-image: url(http://112.74.62.31/images/{{item.productImg}});"></div>
                                                     </td>
-                                                    <td role="gridcell"><span ng-bind="item.attentionIndex" class="ng-binding"></span></td>
-                                                    <td role="gridcell" ng-show="showDetailColum"><span ng-bind="item.scanTimes" class="ng-binding"></span></td>
-                                                    <td role="gridcell" ng-show="showDetailColum"><span ng-bind="item.searchTimes" class="ng-binding"></span></td>
-                                                    <td role="gridcell" ng-show="showDetailColum"><span ng-bind="item.collectTimes" class="ng-binding"></span></td>
                                                     <td role="gridcell">
-                                                        <span ng-bind="item.activePopulation" class="ng-binding"></span>
-                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.activeIncrease]"></span>
+                                                        <span ng-bind="item.attentionIndex" class="ng-binding"></span>
+                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>
+                                                    </td>
+                                                    <td role="gridcell" ng-show="showDetailColum">
+                                                        <span ng-bind="item.scanTimes" class="ng-binding"></span>
+                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.scanTimesIncrease]"></span>
+                                                    </td>
+                                                    <td role="gridcell" ng-show="showDetailColum">
+                                                        <span ng-bind="item.searchTimes" class="ng-binding"></span>
+                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.searchTimesIncrease]"></span>
+                                                    </td>
+                                                    <td role="gridcell" ng-show="showDetailColum">
+                                                        <span ng-bind="item.collectTimes" class="ng-binding"></span>
+                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.collectTimesIncrease]"></span>
+                                                    </td>
+                                                    <td role="gridcell">
+                                                        <span ng-bind="item.activePopulation" ng-class="{true: 'growthUpColor', false: 'growthDownColor'}[item.activeIncrease]" class="ng-binding"></span>
                                                     </td>
                                                     <td role="gridcell">
                                                         <span ng-bind="item.linkGrowth" class="ng-binding"></span>

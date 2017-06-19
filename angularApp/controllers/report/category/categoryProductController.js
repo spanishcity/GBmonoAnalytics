@@ -90,9 +90,13 @@
                 activePopulation: parseInt(Math.random() * 5000 + 1),
                 activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 99 + 1),
+                scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimesIncrease: (Math.random() > 0.5),
                 attentionIndex: parseInt(Math.random() * 5 + 1),
+                attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
             }, {
@@ -102,9 +106,13 @@
                 activePopulation: parseInt(Math.random() * 5000 + 1),
                 activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 99 + 1),
+                scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimesIncrease: (Math.random() > 0.5),
                 attentionIndex: parseInt(Math.random() * 5 + 1),
+                attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
             }, {
@@ -114,9 +122,13 @@
                 activePopulation: parseInt(Math.random() * 5000 + 1),
                 activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 99 + 1),
+                scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimesIncrease: (Math.random() > 0.5),
                 attentionIndex: parseInt(Math.random() * 5 + 1),
+                attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
             }, {
@@ -126,9 +138,13 @@
                 activePopulation: parseInt(Math.random() * 5000 + 1),
                 activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 99 + 1),
+                scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimesIncrease: (Math.random() > 0.5),
                 attentionIndex: parseInt(Math.random() * 5 + 1),
+                attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
             }];

@@ -8821,3 +8821,5 @@ base-chart.chart {
 .growthUp:before{content:'\f062';font-family:'FontAwesome';color: #eb4340}
 .growthDown:before{content:'\f063';font-family:'FontAwesome';color: #6ebf3e}
 .questionMark:before{content:'\f05a';font-family:'FontAwesome';margin-left:10px;font-size:1.2rem;}
+.growthUpColor{color:#eb4340}
+.growthDownColor{color:#6ebf3e}
