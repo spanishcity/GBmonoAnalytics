@@ -103,6 +103,7 @@
                 ranking: 2,
                 productName: "花王2",
                 productImg: "Product/4901301334084/4901301334084.jpg",
+                brandName:
                 activePopulation: parseInt(Math.random() * 5000 + 1),
                 activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 99 + 1),
