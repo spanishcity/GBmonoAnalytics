@@ -8823,3 +8823,4 @@ base-chart.chart {
 .questionMark:before{content:'\f05a';font-family:'FontAwesome';margin-left:10px;font-size:1.2rem;}
 .growthUpColor{color:#eb4340}
 .growthDownColor{color:#6ebf3e}
+.filterLinks{margin:0 10px;}

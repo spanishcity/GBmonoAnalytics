@@ -67,11 +67,7 @@
                 //body: "<a href=''>美容</a>&nbsp;&nbsp;<a href=''>基础护理</a>&nbsp;&nbsp;<a href=''>按摩·冷（霜·膏）</a>&nbsp;&nbsp;<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 搜索</kendo-button>"
 
                 body: "<a href=''>美容</a>&nbsp;—&nbsp;<a href=''>基础护理</a>&nbsp;—&nbsp;<a href=''>按摩·冷（霜·膏）</a>"
-            },
-            {
-                title: "GBmono关注度",
-                body: "<a class='gbmonoFilter-click' href=''>关注度指标</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>扫码次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>收藏次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>搜索次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>分享次数</a>"
-            },
+            }
         ]
 
         // retreive product data and binding it into kendo grid
@@ -81,6 +77,7 @@
                     $scope.showDetailColum = !$scope.showDetailColum;
                 }
             }
+            $scope.categroys = ['医药品', '卫生用品', '婴儿用品', '日用杂货', '家庭用品', '宠物用品'];
 
             // init kendo ui grid with product data
             $scope.tableData = [{
@@ -223,7 +220,7 @@
                     }
                 },
                 sortable: true,
-                height: 133,
+                height: 77,
                 filterable: false,
                 columns: [
                     {
