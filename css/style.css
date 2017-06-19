@@ -8824,8 +8824,9 @@ base-chart.chart {
 .growthUpColor{color:#eb4340;}
 .growthDownColor{color:#6ebf3e;}
 .filterLinks{margin:0 10px;}
-.tableView, .graphView{font-size:1.8rem;padding:0 5px;color:#428bca;}
-.graphView{margin-right: 10px;}
+.tableView, .graphView, .download{font-size:1.8rem;padding:0 5px;color:#428bca;}
+.tableView, .graphView{margin-right: 10px;}
 .tableView:before{content:'\f0ce';font-family:'FontAwesome';color: inherit;}
 .graphView:before{content:'\f080';font-family:'FontAwesome';color: inherit;}
+.download:before{content:'\f019';font-family:'FontAwesome';color: inherit;}
 .tableView.active, .graphView.active{background: #428bca;border-radius: 5px;color: #fff;}
