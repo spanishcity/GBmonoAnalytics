@@ -1,6 +1,20 @@
 ﻿<div class="page-content">
     <div class="row">
         <div class="col-xs-12">
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近 30 天</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近2个月</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近3个月</a></div>
+            <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近6个月</a></div>
+            <div class="col-md-2 col-xs-12 categoryTop-line">
+                <select id="nnn" class="col-md-12 col-xs-12 "
+                        ng-options="date for date in vm.date"
+                        ng-model="vm.dateTime"
+                        ng-change="vm.dateChange()"></select>
+            </div>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div class="col-xs-12">
             <div class="widget-box transparent">
                 <div class="widget-header">
                     <h4 class="widget-title lighter">用户概览</h4>
@@ -57,8 +71,15 @@
                 </div>
             </div>
         </div>
+    </div>-->
+    <div class="row  margin-top-10"">
+        <div class="col-xs-12 pull-right">
+            <a class="pull-right download" title="下载" href="javascript://"></a>
+            <a class="pull-right tableView" ng-class="{true: 'active', false: ''}[!graphView]" title="数据表格" ng-click="graphView=false;" href="javascript://"></a>
+            <a class="pull-right graphView" ng-class="{true: 'active', false: ''}[graphView]" title="数据图形" ng-click="graphView=true;" href="javascript://"></a>
+        </div>
     </div>
-    <div ng-show="graphView">
+    <div ng-show="graphView" class="margin-top-10 gbmono_grid_bord">
         <div class="row margin-top-10">
             <div class="col-6" id="widget_product_count">
                 <div class="card">
@@ -104,8 +125,8 @@
             </div>
         </div>
     </div>
-    <div ng-show="!graphView">
-        <div class="row">
+    <div ng-show="!graphView" class="margin-top-10 gbmono_grid_bord">
+        <div class="row margin-top-10">
             <div class="col-xs-12">
                 <!-- <div kendo-grid="grid" k-options="vm.mainGridOptions"></div> -->
                 <div class="k-grid k-widget">
@@ -141,7 +162,8 @@
                                         <span ng-bind="item.userArea" class="ng-binding"></span>
                                     </td>
                                     <td role="gridcell">
-                                        <span ng-bind="item.userActive" class="ng-binding"></span>
+                                        <span ng-bind="item.userActive" class="ng-binding" ></span>
+                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.linkGrowthIncrease]"></span>
                                     </td>
                                 </tr>
                             </tbody>

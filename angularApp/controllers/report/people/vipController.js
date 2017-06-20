@@ -46,79 +46,102 @@
                 { name: "昆明", value: 4633 },
         ];
         var buildUser = function(){
-            return [
-                {
+            return [{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "化妆水",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "美容液",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "厨房·餐具洗涤类",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "婴儿食品·奶粉",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "糖果·饮料·果冻",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "面膜霜·面膜",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "养老用品·用具",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "防虫剂·除湿·干燥剂",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "减肥·美容",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "浴室·卫生间用品",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "女性用药",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 },{
                     userId: '用户' + parseInt(Math.random() * 999 + 1),
                     userSex: (Math.random() > 0.5 ? '男' : '女'),
                     userAge: parseInt(Math.random() * 50 + 1),
                     userArea: areaList[parseInt(Math.random() * 36)].name,
-                    userActive: parseInt(Math.random() * 100 + 1)
+                    userActive: parseInt(Math.random() * 100 + 1),
+                    userCategory: "公共卫生用药",
+                    linkGrowthIncrease: (Math.random() > 0.5)
                 }
             ];
         }

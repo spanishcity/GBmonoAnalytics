@@ -163,14 +163,73 @@
 
 .gbmono_text_blue {
     display:inline-block;
-    font-size:16px;
+    font-size:18px;
     color:#249CFA;
     font-weight:bold;
 }
 
 .gbmono_text_red {
     display:inline-block;
-    font-size:16px;
+    font-size:18px;
     color:#F46767;
     font-weight:bold;
 }
+
+.gbmono_tab_unclick {
+    border-color:#fff!important;
+    background:#FAFAFA!important;
+    color:#70b3fb!important;
+    box-shadow:none!important;
+    border:none;
+}
+
+.gbmono_tab_click {
+    border-color:#fff!important;
+    background:#70b3fb!important;
+    color:#FAFAFA!important;
+    box-shadow:none!important;
+    border:none;
+}
+
+.gbmono_grid_bord {
+    border-bottom:1px solid rgba(0,0,0,.2);
+    border-top:1px solid rgba(0,0,0,.2);
+
+}
+
+.gbmono_choose_click {
+    color:#F46767;
+}
+
+.gbmono_choose_unclick {
+    color:#249CFA;
+}
+
+.gbmono_sum {
+    box-shadow:#c1c1c1 0 4px 10px;
+    border-radius:5px;
+    width:340px;
+    height:140px;
+    background:#249CFA;
+}
+
+.margin-top-20 {
+    margin-top:20px;
+}
+
+.background_white {
+    
+    height:70px;
+    line-height:70px;
+}
+
+.gbmono_radius {
+    border-radius:5px;
+    background:#fff;
+    margin-left:1%;
+    width:99%;
+    height:140px;
+}
+
+
+

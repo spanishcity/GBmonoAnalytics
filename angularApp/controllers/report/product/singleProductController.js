@@ -1,13 +1,13 @@
 ﻿(function (module) {
     // inject the controller params
-    ctrl.$inject = ['$filter'];
+    ctrl.$inject = ['$scope','$filter'];
 
     // create controller
     module.controller('singleProductController', ctrl);
 
     // controller body
 
-    function ctrl($filter) {
+    function ctrl($scope,$filter) {
         var vm = this;
 
         vm.mapData = [
@@ -87,6 +87,157 @@
             "昆明": [102.73, 25.04],
         };
 
+        var areaList = [
+                { name: "上海", value: 29780 },
+                { name: "珠海", value: 2186 },
+                { name: "三亚", value: 1135 },
+                { name: "惠州", value: 1973 },
+                { name: "海口", value: 2568 },
+                { name: "合肥", value: 4039 },
+                { name: "南京", value: 6959 },
+                { name: "杭州", value: 5632 },
+                { name: "苏州", value: 6707 },
+                { name: "无锡", value: 3393 },
+                { name: "昆山", value: 1894 },
+                { name: "广州", value: 15769 },
+                { name: "深圳", value: 8259 },
+                { name: "佛山", value: 5741 },
+                { name: "东莞", value: 3030 },
+                { name: "福州", value: 4542 },
+                { name: "厦门", value: 3329 },
+                { name: "南宁", value: 3157 },
+                { name: "郑州", value: 6690 },
+                { name: "武汉", value: 8678 },
+                { name: "长沙", value: 5303 },
+                { name: "南昌", value: 3025 },
+                { name: "北京", value: 20259 },
+                { name: "长春", value: 3016 },
+                { name: "大连", value: 3202 },
+                { name: "沈阳", value: 4540 },
+                { name: "哈尔滨", value: 3141 },
+                { name: "天津", value: 8626 },
+                { name: "济南", value: 4361 },
+                { name: "青岛", value: 6667 },
+                { name: "太原", value: 4080 },
+                { name: "石家庄", value: 6137 },
+                { name: "西安", value: 6991 },
+                { name: "成都", value: 13873 },
+                { name: "重庆", value: 13283 },
+                { name: "昆明", value: 4633 },
+        ];
+        var buildUser = function () {
+            return [{
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "化妆水",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "美容液",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "厨房·餐具洗涤类",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "婴儿食品·奶粉",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "糖果·饮料·果冻",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "面膜霜·面膜",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "养老用品·用具",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "防虫剂·除湿·干燥剂",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "减肥·美容",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "浴室·卫生间用品",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "女性用药",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }, {
+                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
+                userAge: parseInt(Math.random() * 50 + 1),
+                userArea: areaList[parseInt(Math.random() * 36)].name,
+                userActive: parseInt(Math.random() * 100 + 1),
+                userCategory: "公共卫生用药",
+                linkGrowthIncrease: (Math.random() > 0.5)
+            }
+            ];
+        }
+
+        $scope.graphView = true;
+        $scope.userTable = buildUser();
+
+
+        $scope.fn = {
+            reBuildData: function () {
+                $scope.userTable = buildUser();
+                init();
+            }
+        }
+
+
         vm.searchType = [{
             name: "--选择--",
             value: 0
@@ -115,6 +266,7 @@
                         value: 6
                     }]
         vm.searchTypeValue = 0;
+
 
         //条形码搜索内容
         vm.search = {
@@ -180,110 +332,82 @@
         function initSingle() {
             var myChart = echarts.init(document.getElementById('singleCategory'));
             option = {
-                color: ['#249CFA', '#CECECE'],
                 tooltip: {
                     trigger: 'axis',
-                    textStyle: {
-                        fontSize: 15,
-                        color: "#fff",
+                    axisPointer: { type: 'cross' }
+                },
+                toolbox: {
+                    feature: {
+                        dataView: { show: true, readOnly: false },
+                        magicType: { show: true, type: ['line', 'bar'] },
+                        restore: { show: true },
+                        saveAsImage: { show: true }
                     }
                 },
                 legend: {
-                    orient: 'horizontal',
-                    right: "4%",
-                    itemGap: 20,
-                    //itemWidth:16,
-                    //itemHeight:12,
-                    data: ['粉底', '彩妆', ],
-                    textStyle: {
-                        color: 'black',
+                    data: ['粉底', '彩妆', '关注人数']
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['2016/01/01', '2016/01/08', '2016/01/15', '2016/01/22', '2016/01/29',
+                                    '2016/02/05', '2016/02/12', '2016/02/19', '2016/02/26', '2016/03/06', '2016/03/13', '2016/03/20'
+                        ]
                     }
-                },
-
-                grid: {
-                    show: true,
-                    left: 60,
-                    top: 34,
-                    right: 44,
-                    bottom: 42,
-                    borderWidth: 1,
-                    borderColor: 'rgba(170,172,178,0.33)',
-                    backgroundColor: '#fff',
-                },
-                calculable: true,
-                xAxis: [{
-                    type: 'category',
-                    boundaryGap: false,
-                    //在（type: 'category'）中设置data有效
-                    data: ['2016/01/01', '2016/01/08', '2016/01/15', '2016/01/22', '2016/01/29',
-                        '2016/02/05', '2016/02/12', '2016/02/19', '2016/02/26'
-                    ],
-
-
-                }],
-                yAxis: [{
-                    type: 'value',
-                    min: 0,
-                    max: 100,
-                    splitLine: {
-                        //show:false
-                        lineStyle: {
-                            color: 'rgba(36, 156, 250)',
-                            width: 1,
-                            type: 'solid'
-                        }
-
-                    },
-
-                }],
-                series: [{
-                    name: '粉底',
-                    type: 'line',
-                    smooth: true, //是否平滑曲线显示
-                    symbol: 'none',
-                    lineStyle: { //线条样式 
-                        normal: {
-                            width: 1,
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: 'GBmono关注度',
+                        min: 0,
+                        max: 5,
+                        interval: 1,
+                        axisLabel: {
+                            formatter: '{value}'
                         }
                     },
-                    areaStyle: { //区域填充样式
-                        normal: {
-                            //线性渐变，前4个参数分别是x0,y0,x2,y2(范围0~1);相当于图形包围盒中的百分比。如果最后一个参数是‘true’，则该四个值是绝对像素位置。
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: 'rgba(234, 244, 255,1.0)'
-                            }, ], false),
-
-                            shadowColor: 'rgba(0, 0, 0, 0.1)', //阴影颜色
-                            shadowBlur: 0 //shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
+                    {
+                        type: 'value',
+                        name: '人数',
+                        min: 0,
+                        max: 20,
+                        interval: 2,
+                        axisLabel: {
+                            formatter: '{value} w'
                         }
+                    }
+                ],
+                series: [
+                    {
+                        name: '粉底',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: '#249CFA',
+                            }
+                        },
+                        data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
                     },
-                    data: [20.00, 1.22, 31.21, 5.40, 0.60, 26.30, 11.50, 24.42, 12.92]
-                },
-                {
-                    name: '彩妆',
-                    type: 'line',
-                    smooth: true,
-                    symbol: 'none',
-                    lineStyle: {
-                        normal: {
-                            width: 1
-                        }
+                    {
+                        name: '彩妆',
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {
+                                color: '#AAACB2',
+                            }
+                        },
+                        data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
                     },
-                    areaStyle: {
-                        normal: {
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: 'rgba(250, 250, 250, 0.9)'
-                            }, ], false),
-                            //shadowColor: 'rgba(0,0, 0, 0.1)',
-                            shadowBlur: 0
-                        }
-                    },
-                    data: [11.30, 8.12, 11, 34, 23.61, 4.13, 13.30, 13.01, 5.94, 12.30]
-                },
-                ] //series结束
-            }; // option结束
+                    {
+                        name: '关注人数',
+                        type: 'line',
+                        smooth: true,
+                        symbol: 'none',
+                        yAxisIndex: 1,
+                        data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 12, 14.4, 12.0, 9.5, 12.0, 6.2]
+                    }
+                ]
+            };
             myChart.setOption(option);
             window.onresize = myChart.resize;
         }

@@ -95,6 +95,7 @@
                             productDataFactory.getByCategory(vm.categoryId)
                                 .success(function (data) {
                                     // kendo grid callback
+                                    console.log(data)
                                     e.success(data);
                                 });
                         }
@@ -282,6 +283,7 @@
                         read: function (e) {
                             productDataFactory.search(vm.searchModel)
                                 .success(function (data) {
+                                    console.log(data)
                                     // kendo grid callback
                                     e.success(data);
                                 });
@@ -293,36 +295,34 @@
                 filterable: false,
                 columns: [
                     {
-                        field: "primaryName", title: "名称",
-                        template: "<div class='product-grid-img'" +
-                                        "style='background-image: url(#:gbmono.img_path + '/' + data.imgUrl#);'></div>" +
-                                    "<div class='product-grid-name'><a ng-href='\\#/products/edit/#=productId#'>#: primaryName #</a></div>"
+                        field: "primaryName", title: "名称", width: 150,
+                        template:"<div class='product-grid-name'><a ng-href='\\#/products/edit/#=productId#'>#: primaryName #</a></div>"
                     },
-                    { field: "brandName", title: "品牌 (制造商)" },
-                    { field: "productCode", title: "品类", width: 80 },
+                    { field: "brand", title: "品牌 (制造商)", width: 100, template: "<div>#: data.brand.displayName #</div>" },
+                    { field: "category", title: "品类", width: 80, template: "<div>#: data.category.name #</div>" },
                     { field: "barCode", title: "条形码", width: 150 },
                     {
                         field: "price", title: "价格", width: 100,
                         template: "#= '￥' + kendo.toString(kendo.toString(price), 'n0') #"
                     },
-                    {
-                        field: "createdDate", title: "创建日期", width: 100,
-                        template: "#= kendo.toString(kendo.parseDate(createdDateTime), 'yyyy-MM-dd') #"
-                    },
-                    {
-                        field: "activationDate", title: "上架日期", width: 100,
-                        template: "#= kendo.toString(kendo.parseDate(activationDate), 'yyyy-MM-dd') #"
-                    },
+                    //{
+                    //    field: "createdDate", title: "创建日期", width: 100,
+                    //    template: "#= kendo.toString(kendo.parseDate(createdDateTime), 'yyyy-MM-dd') #"
+                    //},
+                    //{
+                    //    field: "activationDate", title: "上架日期", width: 100,
+                    //    template: "#= kendo.toString(kendo.parseDate(activationDate), 'yyyy-MM-dd') #"
+                    //},
                     //{
                     //    field: "expiryDate", title: "结束日期", width: 100,
                     //    template: "#= expiryDate == null ? '' : kendo.toString(kendo.parseDate(expiryDate), 'yyyy-MM-dd') #"
                     //},
-                    {
-                        template: '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;' +
-                                  '<a class="btn btn-xs btn-info" ng-href="\\#/products/edit/#=productId#"><i class="ace-icon fa fa-pencil bigger-120"></i></a>&nbsp;&nbsp;' +
-                                  '<button class="btn btn-xs btn-danger" ng-click=""><i class="ace-icon fa fa-trash-o bigger-120"></i></button>',
-                        width: 150
-                    }
+                    //{
+                    //    template: '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;' +
+                    //              '<a class="btn btn-xs btn-info" ng-href="\\#/products/edit/#=productId#"><i class="ace-icon fa fa-pencil bigger-120"></i></a>&nbsp;&nbsp;' +
+                    //              '<button class="btn btn-xs btn-danger" ng-click=""><i class="ace-icon fa fa-trash-o bigger-120"></i></button>',
+                    //    width: 150
+                    //}
                 ]
             };
         }

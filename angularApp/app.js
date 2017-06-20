@@ -169,6 +169,12 @@
                     controllerAs: 'vm',
                     caseInsensitiveMatch: true
                 })
+                .when('/report/portfolioAnalysis', { // create productGroup
+                    templateUrl: gbmono.app_view_path + '/report/people/portfolioAnalysis.html',
+                    controller: 'portfolioAnalysisController',
+                    controllerAs: 'vm',
+                    caseInsensitiveMatch: true
+                })
                 .when('/report/category', { // create productGroup
                     templateUrl: gbmono.app_view_path + '/report/category/categories.html',
                     controller: 'categoriesController',
