@@ -1,74 +1,172 @@
-﻿
-
-<div class="page-content">
+﻿<div class="page-content">
     <div class="row">
         <div class="col-xs-12">
-            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近 30 天</a></div>
-            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近2个月</a></div>
-            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近3个月</a></div>
-            <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近6个月</a></div>
-            <div class="col-md-2 col-xs-12 categoryTop-line">
-                <select id="nnn" class="col-md-12 col-xs-12 "
-                        ng-options="date for date in vm.date"
-                        ng-model="vm.dateTime"
-                        ng-change="vm.dateChange()"></select>
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">用户概览</h4>
+                </div>
             </div>
-
+            <div class="widget-body">
+                <div class="widget-main padding-18 no-padding-left no-padding-right">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="k-grid k-widget" style="height: 77px;">
+                                <div class="k-grid-header" style="padding-right: 17px;">
+                                    <div class="k-grid-header-wrap">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width:10%" />
+                                                <col style="width:90%" />
+                                            </colgroup>
+                                            <thead role="rowgroup">
+                                                <tr role="row">
+                                                    <th class="k-header ng-scope"><a class="k-link" href="javascript://">高级筛选</a></th>
+                                                    <th class="k-header ng-scope">
+                                                        <div class="col-xs-4 pull-right">
+                                                            <a class="pull-right download" title="下载" href="javascript://"></a>
+                                                            <a class="pull-right tableView" ng-class="{true: 'active', false: ''}[!graphView]" title="数据表格" ng-click="graphView=false;" href="javascript://"></a>
+                                                            <a class="pull-right graphView" ng-class="{true: 'active', false: ''}[graphView]" title="数据图形" ng-click="graphView=true;" href="javascript://"></a>
+                                                        </div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="k-grid-content" style="height: 41px;">
+                                    <table style="height: auto;">
+                                        <colgroup>
+                                            <col style="width:10%" />
+                                            <col style="width:90%" />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr class="ng-scope">
+                                                <td>
+                                                    <span class="ng-binding">日期范围</span>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript://" ng-click="fn.reBuildData();" class="filterLinks" ng-repeat="item in filterDates" ng-bind="item"></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="row margin-top-10">
-
-        <div class="col-6" id="widget_product_count">
-            <div class="card">
-                <div class="card-header">
-                    性别
-                </div>
-                <div class="card-block">
-                    <div id="chartSex" style="height:300px"></div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-6" id="widget_product_count">
-
-            <div class="card">
-                <div class="card-header">
-                    年龄分布
-                </div>
-                <div class="card-block">
-                    <div id="chartAge" style="height:300px"></div>
+    <div ng-show="graphView">
+        <div class="row margin-top-10">
+            <div class="col-6" id="widget_product_count">
+                <div class="card">
+                    <div class="card-header">
+                        性别
+                    </div>
+                    <div class="card-block">
+                        <div id="chartSex" style="height:300px"></div>
+                    </div>
                 </div>
             </div>
-
+            <div class="col-6" id="widget_product_count">
+                <div class="card">
+                    <div class="card-header">
+                        年龄分布
+                    </div>
+                    <div class="card-block">
+                        <div id="chartAge" style="height:300px"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-
+        <div class="row">
+            <div class="col-6">
+                <div class="card">                
+                    <div class="card-header">
+                        地区分布
+                    </div>
+                    <div class="card-block">
+                        <div id="chartArea" style="height:500px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        用户兴趣
+                    </div>
+                    <div class="card-block">
+                        <div id="chartCatery" style="height:500px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    <div class="row">
-
-        <div class="col-6">
-            <div class="card">                
-                <div class="card-header">
-                    地区分布
-                </div>
-                <div class="card-block">
-                    <div id="chartArea" style="height:500px"></div>
+    <div ng-show="!graphView">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- <div kendo-grid="grid" k-options="vm.mainGridOptions"></div> -->
+                <div class="k-grid k-widget">
+                    <div class="k-grid-header" style="padding-right: 17px;">
+                        <div class="k-grid-header-wrap">
+                            <table role="grid">
+                                <thead role="rowgroup">
+                                    <tr role="row">
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">用户ID</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">性别</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">年龄</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">地区</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">活跃度指数</a></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="k-grid-content">
+                        <table role="grid">
+                            <tbody role="rowgroup">
+                                <tr class="ng-scope" ng-repeat="item in userTable">
+                                    <td role="gridcell">
+                                        <span ng-bind="item.userId" class="ng-binding"></span>
+                                    </td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.userSex" class="ng-binding"></span>
+                                    </td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.userAge" class="ng-binding"></span>
+                                    </td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.userArea" class="ng-binding"></span>
+                                    </td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.userActive" class="ng-binding"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    用户兴趣
+        <div class="row margin-top-10">
+            <div class="col-xs-12">
+                <!-- <div class="col-xs-6">
+                    <div class="dataTables_info" id="sample-table-2_info">Showing 1 to 10 of 23 entries</div>
                 </div>
-                <div class="card-block">
-                    <div id="chartCatery" style="height:500px"></div>
-                </div>
+                <div class="col-xs-6"> -->
+                    <div class="dataTables_paginate paging_bootstrap">
+                        <ul class="pagination">
+                            <li class="prev disabled"><a href="#">&lt;&lt;</a></li>
+                            <li class="active"><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li class="next"><a href="#">&gt;&gt;</a></li>
+                        </ul>
+                    </div>
+                <!-- </div> -->
             </div>
         </div>
-
     </div>
 </div>

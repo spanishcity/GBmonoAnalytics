@@ -1,16 +1,13 @@
 ﻿(function (module) {
     // inject the controller params
-    ctrl.$inject = [];
+    ctrl.$inject = ['$scope'];
 
     // create controller
     module.controller('vipController', ctrl);
 
     // controller body
-
-    function ctrl() {
-        var vm = this;
-     
-        vm.mapData = [
+    function ctrl($scope){
+        var areaList = [
                 { name: "上海", value: 29780 },
                 { name: "珠海", value: 2186 },
                 { name: "三亚", value: 1135 },
@@ -48,6 +45,97 @@
                 { name: "重庆", value: 13283 },
                 { name: "昆明", value: 4633 },
         ];
+        var buildUser = function(){
+            return [
+                {
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                },{
+                    userId: '用户' + parseInt(Math.random() * 999 + 1),
+                    userSex: (Math.random() > 0.5 ? '男' : '女'),
+                    userAge: parseInt(Math.random() * 50 + 1),
+                    userArea: areaList[parseInt(Math.random() * 36)].name,
+                    userActive: parseInt(Math.random() * 100 + 1)
+                }
+            ];
+        }
+        
+        $scope.filterDates = ['全部', '最近30天', '最近2个月', '最近3个月', '最近6个月'];
+        $scope.graphView = true;
+        $scope.userTable = buildUser();
+
+        $scope.fn = {
+            reBuildData: function(){
+                $scope.userTable = buildUser();
+                init();
+            }
+        }
+
+        var vm = this;
+        vm.mapData = areaList;
         vm.geoCoordMap = {
             "上海": [121.48, 31.22],
             "珠海": [113.52, 22.3],
@@ -87,30 +175,15 @@
             "昆明": [102.73, 25.04],
         };
         init();
-        vm.date = [
-           "--选择时间--",
-           "2017/01",
-           "2017/02",
-           "2017/03",
-           "2017/04",
-           "2017/05"
-        ];
-        vm.dateTime = "--选择时间--";
 
         vm.resert = function () {
             resertOption();
         }
 
-        function init() {
-            //getProducts();
-            //getByCategory(1000, 0, 10);
-            //initTopChart();
+        function init(){
             initSex();
-            //initChinaChart();
             initAge();
             initArea();
-            //initCatery();
-            //词云echarts3已经没有，echarts2中有词云，使用的是echarts3。
             catory();
         }
 
@@ -141,10 +214,10 @@
                     radius: '55%',
                     center: ['40%', '50%'],
                     data: [{
-                        value: 310,
+                        value: parseInt(Math.random() * 500 + 500),
                         name: '男'
                     }, {
-                        value: 434,
+                        value: parseInt(Math.random() * 500 + 500),
                         name: '女'
                     }],
                     itemStyle: {
@@ -215,10 +288,17 @@
                 },
                 series: [
                     {
-                        name: '2012年',
+                        name: new Date().getFullYear() + '年',
                         type: 'bar',
                         barWidth: 10,
-                        data: [23438, 30000, 31000, 68807, 13141, 15264]
+                        data: [
+                            parseInt(Math.random() * 100 + 1), 
+                            parseInt(Math.random() * 300 + 300), 
+                            parseInt(Math.random() * 500 + 500), 
+                            parseInt(Math.random() * 300 + 300),
+                            parseInt(Math.random() * 200 + 1), 
+                            parseInt(Math.random() * 100 + 1)
+                        ]
                     }
                 ],
                  itemStyle:{  
@@ -233,10 +313,10 @@
             window.onresize = myChart.resize;
         }
 
-        function initArea() {
+        function initArea(){
             var myChart = echarts.init(document.getElementById('chartArea'));
             function randomData() {
-                return Math.round(Math.random() * 1000);
+                return Math.round(Math.random() * 45000);
             }
 
             option = {
@@ -288,40 +368,40 @@
                             }
                         },
                         data: [
-                            { name: '北京', value: 21300 },
-                            { name: '天津', value: 5816 },
-                            { name: '上海', value: 28408 },
-                            { name: '重庆', value: 7890 },
-                            { name: '河北', value: 7120 },
-                            { name: '河南', value: 12406 },
-                            { name: '云南', value: 6870 },
-                            { name: '辽宁', value: 9845 },
-                            { name: '黑龙江', value: 5222 },
-                            { name: '湖南', value: 12658 },
-                            { name: '安徽', value: 10783 },
-                            { name: '山东', value: 16253 },
-                            { name: '新疆', value: 3536 },
-                            { name: '江苏', value: 31939 },
-                            { name: '浙江', value: 33156 },
-                            { name: '江西', value: 8684 },
-                            { name: '湖北', value: 14803 },
-                            { name: '广西', value: 7531 },
-                            { name: '甘肃', value: 2880 },
-                            { name: '山西', value: 5444 },
-                            { name: '内蒙古', value: 3775 },
-                            { name: '陕西', value: 7435 },
-                            { name: '吉林', value: 4019 },
-                            { name: '福建', value: 14269 },
-                            { name: '贵州', value: 5106 },
-                            { name: '广东', value: 41800 },
-                            { name: '青海', value: 600 },
-                            { name: '西藏', value: 365 },
-                            { name: '四川', value: 16160 },
-                            { name: '宁夏', value: 1027 },
-                            { name: '海南', value: 2149 },
+                            { name: '北京', value: randomData() },
+                            { name: '天津', value: randomData() },
+                            { name: '上海', value: randomData() },
+                            { name: '重庆', value: randomData() },
+                            { name: '河北', value: randomData() },
+                            { name: '河南', value: randomData() },
+                            { name: '云南', value: randomData() },
+                            { name: '辽宁', value: randomData() },
+                            { name: '黑龙江', value: randomData() },
+                            { name: '湖南', value: randomData() },
+                            { name: '安徽', value: randomData() },
+                            { name: '山东', value: randomData() },
+                            { name: '新疆', value: randomData() },
+                            { name: '江苏', value: randomData() },
+                            { name: '浙江', value: randomData() },
+                            { name: '江西', value: randomData() },
+                            { name: '湖北', value: randomData() },
+                            { name: '广西', value: randomData() },
+                            { name: '甘肃', value: randomData() },
+                            { name: '山西', value: randomData() },
+                            { name: '内蒙古', value: randomData() },
+                            { name: '陕西', value: randomData() },
+                            { name: '吉林', value: randomData() },
+                            { name: '福建', value: randomData() },
+                            { name: '贵州', value: randomData() },
+                            { name: '广东', value: randomData() },
+                            { name: '青海', value: randomData() },
+                            { name: '西藏', value: randomData() },
+                            { name: '四川', value: randomData() },
+                            { name: '宁夏', value: randomData() },
+                            { name: '海南', value: randomData() },
                             { name: '台湾', value: randomData() },
                             { name: '香港', value: randomData() },
-                            { name: '澳门', value: 7 }
+                            { name: '澳门', value: randomData() }
                         ]
                     },
 
@@ -330,7 +410,6 @@
             };
             myChart.setOption(option);
             window.onresize = myChart.resize;
-
         }
 
         function initCatery() {
@@ -566,7 +645,6 @@
             window.onresize = myChart.resize;
         }
 
-        
         function createRandomItemStyle(){ 
             return {
                 normal: {
@@ -681,16 +759,9 @@
             myChart.setOption(option);
             window.onresize = myChart.resize;
         }
-        
-
-
-      
 
         //热搜品类
-
         function getData() {
-
-
             pluginService.showDataLoading('#widget_product_count');
             // call service
             productDataFactory.getCountByCategory()
@@ -711,13 +782,10 @@
         }
 
         function initTopChart() {
-
             var hotcategoryChart = echarts.init(document.getElementById('charthotCategory'));
             //    var hotbrandChart = echarts.init(document.getElementById('charthotBrand'));
             var productCategoryChart = echarts.init(document.getElementById('chartProductCategory'));
-
             hotcategoryOption = {
-
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: {            // 坐标轴指示器，坐标轴触发有效
@@ -799,8 +867,6 @@
                     }
                 ]
             };
-
-
             productCategoryChart.setOption(productCategoryOption);
             window.onresize = productCategoryChart.resize;
 

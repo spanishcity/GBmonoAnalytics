@@ -14,8 +14,46 @@
                     <div class="widget-main padding-18 no-padding-left no-padding-right">
                         <div class="row">
                             <div class="col-xs-12">
-                                <div kendo-grid="grid"
-                                     k-options="vm.categoryFilterGridOptions">
+                                <!-- <div kendo-grid="grid" k-options="vm.categoryFilterGridOptions"></div> -->
+                                <div class="k-grid k-widget" style="height: 77px;">
+                                    <div class="k-grid-header" style="padding-right: 17px;">
+                                        <div class="k-grid-header-wrap">
+                                            <table>
+                                                <colgroup>
+                                                    <col style="width:10%" />
+                                                    <col style="width:90%" />
+                                                </colgroup>
+                                                <thead role="rowgroup">
+                                                    <tr role="row">
+                                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">高级筛选</a></th>
+                                                        <th class="k-header ng-scope">
+                                                            <div class="col-xs-3 pull-right">
+                                                                <!-- <input kendo-date-picker="" k-format="'yyyy-MM-dd'" style="width: 100%;" ng-model="vm.filter.to" class="ng-pristine ng-valid k-input ng-not-empty ng-touched" data-role="datepicker" type="text" role="combobox" aria-expanded="false" aria-disabled="false" aria-readonly="false"> -->
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="k-grid-content" style="height: 41px;">
+                                        <table style="height: auto;">
+                                            <colgroup>
+                                                <col style="width:10%" />
+                                                <col style="width:90%" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr class="ng-scope">
+                                                    <td>
+                                                        <span class="ng-binding">品类选择</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript://" class="filterLinks" ng-repeat="item in categroys" ng-bind="item"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
