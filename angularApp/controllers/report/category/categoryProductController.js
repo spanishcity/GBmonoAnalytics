@@ -4,16 +4,42 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'categoryDataFactory'];
+    ctrl.$inject = ['$scope', 'productDataFactory'];
 
     // create controller
     module.controller('categoryProductController', ctrl);
 
     // controller body
-    function ctrl($scope, categoryDataFactory) {
+    function ctrl($scope, productDataFactory) {
         var vm = this;
 
         init();
+
+        var addjson = {
+             
+        }
+
+        vm.reload = function (categoryId) {
+            productDataFactory.getByCategory(categoryId)
+                .success(function (data) {
+
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].activePopulation = parseInt(Math.random() * 5000 + 1);
+                        data[i].activeIncrease= (Math.random() > 0.5);
+                        data[i].scanTimes= parseInt(Math.random() * 99 + 1);
+                        data[i].scanTimesIncrease= (Math.random() > 0.5);
+                        data[i].searchTimes= parseInt(Math.random() * 99 + 1);
+                        data[i].searchTimesIncrease= (Math.random() > 0.5);
+                        data[i].collectTimes= parseInt(Math.random() * 99 + 1);
+                        data[i].collectTimesIncrease= (Math.random() > 0.5);
+                        data[i].attentionIndex = 4;
+                        data[i].attentionIndexIncrease= (Math.random() > 0.5);
+                        data[i].linkGrowth = (Math.random() * 5).toFixed(2) + "%";
+                        data[i].linkGrowthIncrease = (Math.random() > 0.5);
+                    }
+                    vm.productsTable = data;
+                });
+        }
 
         function init() {
             categoryFilterGrid();
@@ -77,7 +103,8 @@
                     $scope.showDetailColum = !$scope.showDetailColum;
                 }
             }
-            $scope.categroys = ['医药品', '卫生用品', '婴儿用品', '日用杂货', '家庭用品', '宠物用品'];
+            $scope.categroys = [
+                    { categoryId: '1207', categoryName: '洁面' }];
 
             // init kendo ui grid with product data
             $scope.tableData = [{

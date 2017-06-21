@@ -1,13 +1,13 @@
 ﻿(function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope','$filter'];
+    ctrl.$inject = ['$scope', '$filter', 'productDataFactory'];
 
     // create controller
     module.controller('singleProductController', ctrl);
 
     // controller body
 
-    function ctrl($scope,$filter) {
+    function ctrl($scope, $filter, productDataFactory) {
         var vm = this;
 
         vm.mapData = [
@@ -268,37 +268,36 @@
         vm.searchTypeValue = 0;
 
 
+        vm.secCategory = "二级品类";
+        vm.thirdCategory = "三级品类";
+
         //条形码搜索内容
         vm.search = {
             value:""
         };
 
-        vm.reload = function () { 
+        vm.productName = "";
+        vm.search.value;
+        // reload data
+        vm.reload = function () {
+            vm.searchModel = {
+                barCode: vm.search.value,
+                fullProductCode:  ""
+            };
+            productDataFactory.search(vm.searchModel)
+                                .success(function (data) {
+                                    console.log(data)
+                                    // kendo grid callback
+                                    vm.productName = data[0].primaryName;
+                                    vm.secCategory = data[0].category.parentCategory.name;
+                                    vm.thirdCategory = data[0].category.name;
+                                    init();
+                                });
+            // parent grid
+            
         }
 
-        vm.topCategory = "美容";
-
-        vm.secCategory = "彩妆";
-
-        vm.thirdCategory = "底妆";
-
-        //筛选过滤的 html
-        vm.categoryFilterDataSource = [
-            {
-                title: "品类选择",
-                body: "<a href=''>美容</a>&nbsp;—&nbsp;<a href=''>基础护理</a>&nbsp;—&nbsp;<a href=''>按摩·冷（霜·膏）</a>"
-
-                //body: "<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 美容</kendo-button>&nbsp;&nbsp;<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 搜索</kendo-button>"
-            },
-            {
-                title: "GBmono关注度",
-                body: "<a class='gbmonoFilter-click' href=''>关注度指标</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>扫码次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>收藏次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>搜索次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>分享次数</a>"
-            },
-            {
-                title: "日期选择",
-                body: "<div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近 30 天</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近2个月</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近3个月</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近6个月</a></div><div class='col-md-2 col-xs-12 categoryTop-line'><select style='padding-top:0;padding-bottom:0' id='nnn' class='col-md-12 col-xs-12 ' ng-options='date for date in vm.date' ng-model='vm.dateTime' ng-change='vm.dateChange()'></select></div>"
-            }
-        ]
+     
         vm.dateTime = "--选择时间--";
 
         vm.date = [
@@ -345,7 +344,7 @@
                     }
                 },
                 legend: {
-                    data: ['粉底', '彩妆', '关注人数']
+                    data: [vm.thirdCategory, vm.secCategory, '关注人数']
                 },
                 xAxis: [
                     {
@@ -379,7 +378,7 @@
                 ],
                 series: [
                     {
-                        name: '粉底',
+                        name: vm.thirdCategory,
                         type: 'bar',
                         itemStyle: {
                             normal: {
@@ -389,7 +388,7 @@
                         data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
                     },
                     {
-                        name: '彩妆',
+                        name: vm.secCategory,
                         type: 'bar',
                         itemStyle: {
                             normal: {
@@ -635,37 +634,6 @@
 
 
 
-
-        function categoryFilterGrid() {
-            // init kendo ui grid with product data
-            vm.categoryFilterGridOptions = {
-                dataSource: {
-                    transport: {
-                        read: function (e) {
-                            e.success(vm.categoryFilterDataSource);
-                        }
-
-                    }
-                },
-                sortable: true,
-                height: 174,
-                filterable: false,
-                columns: [
-                    {
-                        field: "title",
-                        title: "高级筛选",
-                        //template : '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;',
-                        width: 150
-                    },
-                    {
-                        field: "body",
-                        title: "筛选结果",
-                        template: '<span>#= body#</span>',
-                        width: 350
-                    },
-                ]
-            };
-        }
 
     }
 

@@ -117,31 +117,31 @@
                 columns: [                    
                     {
                         field: "primaryName", title: "名称",
-                        template: "<div class='product-grid-img'" +
-                                        "style='background-image: url(#:gbmono.img_path + '/' + data.imgUrl#);'></div>" +
-                                    "<div class='product-grid-name'><a ng-href='\\#/products/edit/#=productId#'>#: primaryName #</a></div>"
+                        //"<div class='product-grid-img'" +
+                        //                "style='background-image: url(#:gbmono.img_path + '/' + data.imgUrl#);'></div>" +
+                        template: "<div class='product-grid-name'><a ng-href='\\#/products/edit/#=productId#'>#: primaryName #</a></div>"
                     },
-                    { field: "secondaryName", title: "名称2" },
+                    //{ field: "secondaryName", title: "名称2" },
                     { field: "brandName", title: "品牌 (制造商)" },
-                    { field: "productCode", title: "产品代码", width: 80 },
+                    //{ field: "productCode", title: "产品代码", width: 80 },
                     { field: "barCode", title: "条形码", width: 150 },
                     {
                         field: "price", title: "价格", width: 100,
                         template: "#= '￥' + kendo.toString(kendo.toString(price), 'n0') #"
                     },
-                    {
-                        field: "activationDate", title: "上架日期", width: 100,
-                        template: "#= kendo.toString(kendo.parseDate(activationDate), 'yyyy-MM-dd') #"
-                    },
-                    {
-                        field: "expiryDate", title: "结束日期", width: 100,
-                        template: "#= expiryDate == null ? '' : kendo.toString(kendo.parseDate(expiryDate), 'yyyy-MM-dd') #"
-                    },
-                    {
-                        template: '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;' +
-                                  '<a class="btn btn-xs btn-info" ng-href="\\#/products/edit/#=productId#"><i class="ace-icon fa fa-pencil bigger-120"></i></a>&nbsp;&nbsp;' +
-                                  '<button class="btn btn-xs btn-danger" ng-click=""><i class="ace-icon fa fa-trash-o bigger-120"></i></button>', width: 150
-                    }
+                    //{
+                    //    field: "activationDate", title: "上架日期", width: 100,
+                    //    template: "#= kendo.toString(kendo.parseDate(activationDate), 'yyyy-MM-dd') #"
+                    //},
+                    //{
+                    //    field: "expiryDate", title: "结束日期", width: 100,
+                    //    template: "#= expiryDate == null ? '' : kendo.toString(kendo.parseDate(expiryDate), 'yyyy-MM-dd') #"
+                    //},
+                    //{
+                    //    template: '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;' +
+                    //              '<a class="btn btn-xs btn-info" ng-href="\\#/products/edit/#=productId#"><i class="ace-icon fa fa-pencil bigger-120"></i></a>&nbsp;&nbsp;' +
+                    //              '<button class="btn btn-xs btn-danger" ng-click=""><i class="ace-icon fa fa-trash-o bigger-120"></i></button>', width: 150
+                    //}
                 ]
             };
         }

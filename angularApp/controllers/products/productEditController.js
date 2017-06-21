@@ -63,7 +63,12 @@
         // editing image
         vm.editImage = {};
         // img types
-        vm.imgTypes = [{ name: '商品图片', value: 1 }, { name: '介绍图片', value: 2 }, { name: "使用说明图片", value: 3 }, { name: "追加文案图片", value: 4 }];
+        vm.imgTypes = [
+            { name: '商品图片', value: 1 },
+            //{ name: '介绍图片', value: 2 },
+            { name: "使用说明图片", value: 3 },
+            //{ name: "追加文案图片", value: 4 }
+        ];
 
         // tags
         vm.tags = [];
@@ -71,7 +76,7 @@
         // retreive product id from routeparams
         var productId = $routeParams.id ? parseInt($routeParams.id) : 0;
 
-        init();
+        //init();
 
         /* event handlers from view */
         // top cate changed
@@ -154,15 +159,15 @@
             if (typeId === 1) {
                 return '商品图片';
             }
-            else if (typeId === 2) {
-                return '介绍图片';
-            }
+            //else if (typeId === 2) {
+            //    return '介绍图片';
+            //}
             else if (typeId === 3) {
                 return '使用说明图片';
             }
-            else {
-                return '追加文案图片';
-            }
+            //else {
+            //    return '追加文案图片';
+            //}
         }
 
         // changed brand
@@ -193,6 +198,7 @@
                 .success(function (data) {
                     console.log(data)
                     vm.editProduct = data;
+
                     // format the activation date json into date format
                     vm.editProduct.activationDate = $filter('date')(vm.editProduct.activationDate, 'yyyy-MM-dd')
 
@@ -221,7 +227,7 @@
         function getImages(id) {
             productImageDataFactory.getByProduct(id)
                 .success(function (data) {
-                    console.log(data)
+
                     vm.images = data;
                 });
         }
