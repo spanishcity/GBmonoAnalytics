@@ -99,9 +99,11 @@
 
 
         function init() {
-            getData();
-            initArea();
-            catory();
+            setTimeout(function () {
+                getData();
+                initArea();
+                catory();
+            })
         }
 
 

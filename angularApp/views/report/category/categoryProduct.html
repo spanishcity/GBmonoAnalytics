@@ -103,16 +103,15 @@
                                     <div class="k-grid-content">
                                         <table role="grid">
                                             <tbody role="rowgroup">
-                                                <tr class="ng-scope" ng-repeat="item in tableData">
-                                                    <td role="gridcell"><span ng-bind="item.ranking" class="ng-binding"></span></td>
-                                                    <td role="gridcell"><span ng-bind="item.productName" class="ng-binding"></span></td>
+                                                <tr class="ng-scope" ng-repeat="item in vm.productsTable">
+                                                    <td role="gridcell"><span class="ng-binding">{{$index+1}}</span></td>
+                                                    <td role="gridcell"><span ng-bind="item.primaryName" class="ng-binding"></span></td>
                                                     <!--<td role="gridcell">
                                                         <div class="product-grid-img" style="background-image: url(http://112.74.62.31/images/{{item.productImg}});"></div>
                                                     </td>-->
                                                     <td role="gridcell"><span ng-bind="item.brandName" class="ng-binding"></span></td>
                                                     <td role="gridcell">
                                                         <span ng-bind="item.attentionIndex" class="ng-binding"></span>
-                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>
                                                     </td>
                                                     <td role="gridcell" ng-show="showDetailColum">
                                                         <span ng-bind="item.scanTimes" class="ng-binding"></span>

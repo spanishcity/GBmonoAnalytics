@@ -133,7 +133,7 @@
                 userCategory: "化妆水",
             }, {
                 userId: '用户' + parseInt(Math.random() * 9999 + 1),
-                userSex: parseInt(Math.random() * 50 + 1),
+                userSex: (Math.random() > 0.5 ? '男' : '女'),
                 userAge: 33,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
@@ -215,11 +215,13 @@
 
         $scope.graphView = true;
 
-        $scope.fn = {
-            reBuildData: function () {
+        vm.reBuildData = function(){
                 $scope.userTable = buildUser();
-                init();
-            }
+                setTimeout(function () {
+                    initSex();
+                    initAge();
+                    initArea();
+                })
         }
         //vm.searchType = {
         //    GBmonoAttentionDegree: "GBmono关注度",
@@ -299,17 +301,24 @@
 
         init();
 
-
+        vm.reload = function (categoryId) {
+            setTimeout(function () {
+                initSex();
+                initAge();
+                initArea();
+            })
+        }
 
         function init() {
-            categoryFilterGrid();
             //getProducts();
             //getByCategory(1000, 0, 10);
             //initTopChart();
-            initSex();
-            //initChinaChart();
-            initAge();
-            initArea();
+            setTimeout(function () {
+                initSex();
+                initAge();
+                initArea();
+                categoryGrid();
+            })
             //initCatery();
             //词云echarts3已经没有，echarts2中有词云，使用的是echarts3。
            // catory();
@@ -1353,37 +1362,59 @@
         }
 
 
-        function categoryFilterGrid() {
-            // init kendo ui grid with product data
-            vm.categoryFilterGridOptions = {
-                dataSource: {
-                    transport: {
-                        read: function (e) {
-                            e.success(vm.categoryFilterDataSource);
+
+        function categoryGrid() {
+            $scope.categroys = [];
+            $scope.fn = {
+                toggleDetailColum: function () {
+                    $scope.showDetailColum = !$scope.showDetailColum;
+                },
+                showTree: function () {
+                    var hideTree = function (text) {
+                        var isExit = false;
+                        for (var i in $scope.categroys) {
+                            if (text == $scope.categroys[i]) {
+                                isExit = true;
+                            }
+                        }
+                        if (!isExit) {
+                            $scope.categroys = [];
+                            $scope.categroys.push(text);
                         }
 
+                        $scope.showTree = false;
+                        $scope.$apply();
                     }
-                },
-                sortable: true,
-                height: 174,
-                filterable: false,
-                columns: [
-                    {
-                        field: "title",
-                        title: "高级筛选",
-                        //template : '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;',
-                        width: 150
-                    },
-                    {
-                        field: "body",
-                        title: "筛选结果",
-                        template: '<span>#= body#</span>',
-                        width: 350
-                    },
-                ]
-            };
-        }
+                    var offset = $('#treeTrigger').offset(), location = $('.main-content').offset(), width = $('#treeTrigger').width(),
+                        padding = parseInt($('#treeTrigger').css('paddingLeft')) + parseInt($('#treeTrigger').css('paddingRight'));
+                    $('#popTree').css({
+                        'top': (offset.top - location.top) + 'px',
+                        'left': (offset.left - location.left + width + padding) + 'px'
+                    });
+                    $scope.showTree = true;
 
+                    $('#popTree').find('a').unbind('click').bind('click', function () {
+                        var ul = $(this).closest('li').find('ul').eq(0);
+                        if (ul.length) {
+                            ul.toggle();
+                            $(this).siblings('span').toggleClass('k-minus k-plus');
+                        } else {
+                            hideTree($(this).text());
+                            vm.reload($(this).attr("data-id"));
+                        }
+                        return false;
+                    });
+                },
+                removeCategory: function (txt) {
+                    for (var i in $scope.categroys) {
+                        if (txt == $scope.categroys[i]) {
+                            $scope.categroys.splice(i, 1);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 
 })(angular.module('gbmono'));

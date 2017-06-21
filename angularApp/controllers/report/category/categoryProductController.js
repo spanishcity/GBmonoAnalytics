@@ -12,7 +12,6 @@
     // controller body
     function ctrl($scope, productDataFactory) {
         var vm = this;
-
         init();
 
         var addjson = {
@@ -20,8 +19,10 @@
         }
 
         vm.reload = function (categoryId) {
+            console.log(categoryId)
             productDataFactory.getByCategory(categoryId)
                 .success(function (data) {
+                    console.log(data)
 
                     for (var i = 0; i < data.length; i++) {
                         data[i].activePopulation = parseInt(Math.random() * 5000 + 1);
@@ -104,14 +105,17 @@
                     $scope.showDetailColum = !$scope.showDetailColum;
                 },
                 showTree: function(){
-                    var hideTree = function(text){
+                    var hideTree = function (text) {
                         var isExit = false;
                         for(var i in $scope.categroys){
                             if( text == $scope.categroys[i] ){
                                 isExit = true;
                             }
                         }
-                        if( !isExit ) $scope.categroys.push(text);
+                        if (!isExit) {
+                            $scope.categroys = [];
+                            $scope.categroys.push(text);
+                        }  
 
                         $scope.showTree = false;
                         $scope.$apply();
@@ -131,6 +135,7 @@
                             $(this).siblings('span').toggleClass('k-minus k-plus');
                         }else{
                             hideTree($(this).text());
+                            vm.reload($(this).attr("data-id"));
                         }
                         return false;
                     });
@@ -144,9 +149,6 @@
                     }
                 }
             }
-            $scope.categroys = [
-                    { categoryId: '1207', categoryName: '洁面' }];
-
             // init kendo ui grid with product data
             $scope.tableData = [{
                 ranking:1,
@@ -278,33 +280,33 @@
 
         function categoryFilterGrid() {
             // init kendo ui grid with product data
-            vm.categoryFilterGridOptions = {
-                dataSource: {
-                    transport: {
-                        read: function (e) {
-                            e.success(vm.categoryFilterDataSource);
-                        }
+            //vm.categoryFilterGridOptions = {
+            //    dataSource: {
+            //        transport: {
+            //            read: function (e) {
+            //                e.success(vm.categoryFilterDataSource);
+            //            }
                             
-                    }
-                },
-                sortable: true,
-                height: 77,
-                filterable: false,
-                columns: [
-                    {
-                        field:"title",
-                        title: "高级筛选",
-                        //template : '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;',
-                        width: 150
-                    },
-                    {
-                        field: "body",
-                        title: "筛选结果",
-                        template: '<span>#= body#</span>',
-                        width: 250
-                    },
-                ]
-            };
+            //        }
+            //    },
+            //    sortable: true,
+            //    height: 77,
+            //    filterable: false,
+            //    columns: [
+            //        {
+            //            field:"title",
+            //            title: "高级筛选",
+            //            //template : '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;',
+            //            width: 150
+            //        },
+            //        {
+            //            field: "body",
+            //            title: "筛选结果",
+            //            template: '<span>#= body#</span>',
+            //            width: 250
+            //        },
+            //    ]
+            //};
         }
     }
 })(angular.module('gbmono'));

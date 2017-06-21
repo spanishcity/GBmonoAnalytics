@@ -191,11 +191,13 @@
             resertOption();
         }
 
-        function init(){
-            initSex();
-            initAge();
-            initArea();
-            catory();
+        function init() {
+            setTimeout(function () {
+                initSex();
+                initAge();
+                initArea();
+                catory();
+            })
         }
 
         function initSex() {
