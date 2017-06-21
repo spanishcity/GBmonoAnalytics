@@ -669,7 +669,7 @@
         }
         //词云  品类排行
         function catory() {
-            var myChart = echarts.init(document.getElementById('chartCatery'));    
+            var myChart = echarts.init(document.getElementById('chartCatery'));
             option = {
                 title: {
                     text: "",
@@ -701,9 +701,6 @@
                         value: 10000,
                         textStyle: {
                             normal: {
-                                color: 'black'
-                            },
-                            emphasis: {
                                 color: 'red'
                             }
                         }
@@ -768,6 +765,12 @@
                 }]
             };
             myChart.setOption(option);
+            myChart.on('click', function(res){
+                var mappingUrl = {
+                    '化妆水': 'http://www.baidu.com'
+                }
+                window.location.href = mappingUrl[res.name];
+            });
             window.onresize = myChart.resize;
         }
 
