@@ -44,11 +44,11 @@
                                             </colgroup>
                                             <tbody>
                                                 <tr class="ng-scope">
-                                                    <td>
+                                                    <td id="treeTrigger" style="cursor: pointer;" ng-click="fn.showTree();">
                                                         <span class="ng-binding">品类选择</span>
                                                     </td>
                                                     <td>
-                                                        <a href="javascript://" class="filterLinks" ng-repeat="item in categroys" ng-bind="item"></a>
+                                                        <a href="javascript://" class="filterLinks" ng-click="fn.removeCategory(item);" ng-repeat="item in categroys" ng-bind="item"></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -164,6 +164,7 @@
         </div>
     </div>
 </div>
+<div ng-include="'angularApp/views/report/category/tree.html'"></div>
 
 <!--暂时先空着，先做列表-->
 <!--filter window -->

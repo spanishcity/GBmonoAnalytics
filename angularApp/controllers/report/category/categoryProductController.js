@@ -72,12 +72,52 @@
 
         // retreive product data and binding it into kendo grid
         function categoryGrid(){
+            $scope.categroys = [];
             $scope.fn = {
                 toggleDetailColum: function(){
                     $scope.showDetailColum = !$scope.showDetailColum;
+                },
+                showTree: function(){
+                    var hideTree = function(text){
+                        var isExit = false;
+                        for(var i in $scope.categroys){
+                            if( text == $scope.categroys[i] ){
+                                isExit = true;
+                            }
+                        }
+                        if( !isExit ) $scope.categroys.push(text);
+
+                        $scope.showTree = false;
+                        $scope.$apply();
+                    }
+                    var offset = $('#treeTrigger').offset(), location = $('.main-content').offset(), width = $('#treeTrigger').width(),
+                        padding = parseInt($('#treeTrigger').css('paddingLeft')) + parseInt($('#treeTrigger').css('paddingRight'));
+                    $('#popTree').css({
+                        'top': (offset.top - location.top) + 'px',
+                        'left': (offset.left - location.left + width + padding) + 'px'
+                    });
+                    $scope.showTree = true;
+
+                    $('#popTree').find('a').unbind('click').bind('click', function(){
+                        var ul = $(this).closest('li').find('ul').eq(0);
+                        if( ul.length ){
+                            ul.toggle();
+                            $(this).siblings('span').toggleClass('k-minus k-plus');
+                        }else{
+                            hideTree($(this).text());
+                        }
+                        return false;
+                    });
+                },
+                removeCategory: function(txt){
+                    for(var i in $scope.categroys){
+                        if( txt == $scope.categroys[i] ){
+                            $scope.categroys.splice(i, 1);
+                            break;
+                        }
+                    }
                 }
             }
-            $scope.categroys = ['医药品', '卫生用品', '婴儿用品', '日用杂货', '家庭用品', '宠物用品'];
 
             // init kendo ui grid with product data
             $scope.tableData = [{

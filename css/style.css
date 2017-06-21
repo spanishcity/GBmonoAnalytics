@@ -8830,3 +8830,24 @@ base-chart.chart {
 .graphView:before{content:'\f080';font-family:'FontAwesome';color: inherit;}
 .download:before{content:'\f019';font-family:'FontAwesome';color: inherit;}
 .tableView.active, .graphView.active{background: #428bca;border-radius: 5px;color: #fff;}
+#popTree{background:#fff;width:320px;position:absolute;top:0;border:1px solid #ccc;}
+#popTree #treeview{height:380px !important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
