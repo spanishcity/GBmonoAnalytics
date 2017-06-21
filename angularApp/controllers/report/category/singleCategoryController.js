@@ -296,11 +296,12 @@
             //getProducts();
             //getByCategory(1000, 0, 10);
             //initTopChart();
-            initSingle();
-            initSex();
-            //initChinaChart();
-            initAge();
-            initArea();
+            setTimeout(function () {
+                initSingle();
+                initSex();
+                initAge();
+                initArea();
+            })
             //initCatery();
             //词云echarts3已经没有，echarts2中有词云，使用的是echarts3。
             // catory();

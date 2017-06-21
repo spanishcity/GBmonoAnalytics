@@ -1,13 +1,13 @@
 ﻿(function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope','$filter'];
+    ctrl.$inject = ['$scope','$filter', 'productDataFactory'];
 
     // create controller
     module.controller('singleProductController', ctrl);
 
     // controller body
 
-    function ctrl($scope,$filter) {
+    function ctrl($scope, $filter, productDataFactory) {
         var vm = this;
 
         vm.mapData = [
@@ -260,33 +260,28 @@
         vm.search = {
             value:""
         };
+        vm.productName = "";
+        vm.search.value;
+        // reload data
+        vm.reload = function () {
+            vm.searchModel = {
+                barCode: vm.search.value,
+                fullProductCode: ""
+            };
+            productDataFactory.search(vm.searchModel)
+                                .success(function (data) {
+                                    console.log(data)
+                                    // kendo grid callback
+                                    vm.productName = data[0].primaryName;
+                                    vm.secCategory = data[0].category.parentCategory.name;
+                                    vm.thirdCategory = data[0].category.name;
+                                    init();
+                                });
+            // parent grid
 
-        vm.reload = function () { 
         }
 
-        vm.topCategory = "美容";
-
-        vm.secCategory = "彩妆";
-
-        vm.thirdCategory = "底妆";
-
-        //筛选过滤的 html
-        vm.categoryFilterDataSource = [
-            {
-                title: "品类选择",
-                body: "<a href=''>美容</a>&nbsp;—&nbsp;<a href=''>基础护理</a>&nbsp;—&nbsp;<a href=''>按摩·冷（霜·膏）</a>"
-
-                //body: "<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 美容</kendo-button>&nbsp;&nbsp;<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 搜索</kendo-button>"
-            },
-            {
-                title: "GBmono关注度",
-                body: "<a class='gbmonoFilter-click' href=''>关注度指标</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>扫码次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>收藏次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>搜索次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>分享次数</a>"
-            },
-            {
-                title: "日期选择",
-                body: "<div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近 30 天</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近2个月</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近3个月</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近6个月</a></div><div class='col-md-2 col-xs-12 categoryTop-line'><select style='padding-top:0;padding-bottom:0' id='nnn' class='col-md-12 col-xs-12 ' ng-options='date for date in vm.date' ng-model='vm.dateTime' ng-change='vm.dateChange()'></select></div>"
-            }
-        ]
+       
         vm.dateTime = "--选择时间--";
 
         vm.date = [
@@ -307,11 +302,12 @@
             //getProducts();
             //getByCategory(1000, 0, 10);
             //initTopChart();
-            initSingle();
-            initSex();
-            //initChinaChart();
-            initAge();
-            initArea();
+            setTimeout(function () {
+                initSingle();
+                initSex();
+                initAge();
+                initArea();
+            })
             //initCatery();
             //词云echarts3已经没有，echarts2中有词云，使用的是echarts3。
             // catory();
