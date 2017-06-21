@@ -187,7 +187,13 @@
                     controllerAs: 'vm',
                     caseInsensitiveMatch: true
                 })
-                 .when('/report/categoryProduct', { // create productGroup
+                .when('/report/categoryProduct', { // create productGroup
+                    templateUrl: gbmono.app_view_path + '/report/category/categoryProduct.html',
+                    controller: 'categoryProductController',
+                    controllerAs: 'vm',
+                    caseInsensitiveMatch: true
+                })
+                 .when('/report/categoryProduct/:id/:name', { // create productGroup
                      templateUrl: gbmono.app_view_path + '/report/category/categoryProduct.html',
                      controller: 'categoryProductController',
                      controllerAs: 'vm',

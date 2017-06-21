@@ -4,19 +4,22 @@
 */
 (function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', 'productDataFactory'];
+    ctrl.$inject = ['$scope', 'productDataFactory', '$routeParams'];
 
     // create controller
     module.controller('categoryProductController', ctrl);
 
     // controller body
-    function ctrl($scope, productDataFactory) {
+    function ctrl($scope, productDataFactory, $routeParams) {
         var vm = this;
-        init();
+
+        var categoryId = $routeParams.id ? parseInt($routeParams.id) : 0;
+        var categoryName = $routeParams.name ? $routeParams.name : "";
 
         var addjson = {
              
         }
+        init();
 
         vm.reload = function (categoryId) {
             console.log(categoryId)
@@ -43,6 +46,8 @@
         }
 
         function init() {
+            console.log(categoryId)
+            console.log(categoryName)
             categoryFilterGrid();
             categoryGrid();
         }
