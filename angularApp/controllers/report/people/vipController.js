@@ -700,7 +700,7 @@
                     },
                     data: [{
                         name: '化妆水',
-                        value: 10000,
+                        value: 9998,
                         textStyle: {
                             normal: {
                                 color: 'red'
@@ -710,22 +710,22 @@
                         name: '美容液',
                         value: 6181
                     }, {
-                        name: '厨房·餐具洗涤类',
+                        name: '酵素',
                         value: 4386
                     }, {
                         name: '婴儿食品·奶粉',
                         value: 4055
                     }, {
-                        name: '其他基础化妆品',
+                        name: '口罩',
                         value: 2467
                     }, {
-                        name: '糖果·饮料·果冻',
+                        name: '成人纸尿裤（短裤型）',
                         value: 2244
                     }, {
                         name: '面膜霜·面膜',
                         value: 1898
                     }, {
-                        name: '养老用品·用具',
+                        name: '健胃·消化',
                         value: 1484
                     }, {
                         name: '防虫剂·除湿·干燥剂',
@@ -734,34 +734,34 @@
                         name: '减肥·美容',
                         value: 965
                     }, {
-                        name: '浴室·卫生间用品',
+                        name: '戒烟辅助药',
                         value: 847
                     }, {
                         name: '女性用药',
                         value: 582
                     }, {
-                        name: '公共卫生用药',
+                        name: '外用湿疹·皮肤炎用药',
                         value: 555
                     }, {
-                        name: '汉方药·中草药',
+                        name: '减肥糖果·饮料·果冻',
                         value: 550
                     }, {
-                        name: '洗涤·晾干用品',
-                        value: 462
+                        name: '底妆',
+                        value: 1860
                     }, {
-                        name: '加工食品',
+                        name: '腮红',
                         value: 366
                     }, {
-                        name: '酒类',
-                        value: 360
+                        name: '指甲油',
+                        value: 879
                     }, {
-                        name: '其他家庭用品',
+                        name: '腿·脚护理',
                         value: 282
                     }, {
-                        name: '园艺用品',
-                        value: 273
+                        name: '手霜',
+                        value: 688
                     }, {
-                        name: '其他食品',
+                        name: '女性用健发水（TONIC）',
                         value: 265
                     }]
                 }]
@@ -769,7 +769,7 @@
             myChart.setOption(option);
             myChart.on('click', function(res){
                 var mappingUrl = {
-                    '化妆水': 'http://www.baidu.com'
+                    '口罩': '#/report/categoryProduct/020208/口罩'
                 }
                 window.location.href = mappingUrl[res.name];
             });
