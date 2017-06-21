@@ -44,11 +44,11 @@
                                             </colgroup>
                                             <tbody>
                                                 <tr class="ng-scope">
-                                                    <td>
+                                                    <td id="treeTrigger" style="cursor: pointer;" ng-click="fn.showTree();">
                                                         <span class="ng-binding">品类选择</span>
                                                     </td>
                                                     <td>
-                                                        <a href="javascript://" class="filterLinks" ng-repeat="item in categroys" ng-bind="item.categoryName" ng-click="vm.reload(item.categoryId);"></a>
+                                                        <a href="javascript://" class="filterLinks" ng-click="fn.removeCategory(item);" ng-repeat="item in categroys" ng-bind="item"></a>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -86,7 +86,7 @@
                                             <table role="grid">
                                                 <thead role="rowgroup">
                                                     <tr role="row">
-                                                        <th class="k-header ng-scope" width="50"><a class="k-link" href="javascript://">排行</a></th>
+                                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">排行</a></th>
                                                         <th class="k-header ng-scope"><a class="k-link" href="javascript://">产品</a></th>
                                                         <th class="k-header ng-scope"><a class="k-link" href="javascript://">品牌</a></th>
                                                         <th class="k-header ng-scope" title="集匠关注度指标综合用户的扫码，浏览，搜索和收藏的数量，反映产品热度的综合指标" ng-click="fn.toggleDetailColum();"><a class="k-link" href="javascript://">集匠关注度指标<span class="questionMark"></span></a></th>
@@ -103,15 +103,16 @@
                                     <div class="k-grid-content">
                                         <table role="grid">
                                             <tbody role="rowgroup">
-                                                <tr class="ng-scope" ng-repeat="item in vm.productsTable |limitTo:30">
-                                                    <td role="gridcell"  width="50"><span ng-bind="$index+1" class="ng-binding"></span></td>
-                                                    <td role="gridcell"><span ng-bind="item.primaryName" class="ng-binding"></span></td>
+                                                <tr class="ng-scope" ng-repeat="item in tableData">
+                                                    <td role="gridcell"><span ng-bind="item.ranking" class="ng-binding"></span></td>
+                                                    <td role="gridcell"><span ng-bind="item.productName" class="ng-binding"></span></td>
                                                     <!--<td role="gridcell">
                                                         <div class="product-grid-img" style="background-image: url(http://112.74.62.31/images/{{item.productImg}});"></div>
                                                     </td>-->
                                                     <td role="gridcell"><span ng-bind="item.brandName" class="ng-binding"></span></td>
                                                     <td role="gridcell">
                                                         <span ng-bind="item.attentionIndex" class="ng-binding"></span>
+                                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>
                                                     </td>
                                                     <td role="gridcell" ng-show="showDetailColum">
                                                         <span ng-bind="item.scanTimes" class="ng-binding"></span>
@@ -163,6 +164,7 @@
         </div>
     </div>
 </div>
+<div ng-include="'angularApp/views/report/category/tree.html'"></div>
 
 <!--暂时先空着，先做列表-->
 <!--filter window -->
