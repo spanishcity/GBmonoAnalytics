@@ -1,13 +1,13 @@
 ﻿(function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope', '$filter', 'productDataFactory'];
+    ctrl.$inject = ['$scope','$filter'];
 
     // create controller
     module.controller('singleProductController', ctrl);
 
     // controller body
 
-    function ctrl($scope, $filter, productDataFactory) {
+    function ctrl($scope,$filter) {
         var vm = this;
 
         vm.mapData = [
@@ -127,101 +127,89 @@
         ];
         var buildUser = function () {
             return [{
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 25,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "化妆水",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
-                userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
+                userSex: parseInt(Math.random() * 50 + 1),
+                userAge: 33,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "美容液",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 45,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "厨房·餐具洗涤类",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 31,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "婴儿食品·奶粉",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 37,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "糖果·饮料·果冻",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 28,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "面膜霜·面膜",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 32,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "养老用品·用具",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 38,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "防虫剂·除湿·干燥剂",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 36,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "减肥·美容",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 34,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "浴室·卫生间用品",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 32,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "女性用药",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 39,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "公共卫生用药",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }
             ];
         }
@@ -268,36 +256,37 @@
         vm.searchTypeValue = 0;
 
 
-        vm.secCategory = "二级品类";
-        vm.thirdCategory = "三级品类";
-
         //条形码搜索内容
         vm.search = {
             value:""
         };
 
-        vm.productName = "";
-        vm.search.value;
-        // reload data
-        vm.reload = function () {
-            vm.searchModel = {
-                barCode: vm.search.value,
-                fullProductCode:  ""
-            };
-            productDataFactory.search(vm.searchModel)
-                                .success(function (data) {
-                                    console.log(data)
-                                    // kendo grid callback
-                                    vm.productName = data[0].primaryName;
-                                    vm.secCategory = data[0].category.parentCategory.name;
-                                    vm.thirdCategory = data[0].category.name;
-                                    init();
-                                });
-            // parent grid
-            
+        vm.reload = function () { 
         }
 
-     
+        vm.topCategory = "美容";
+
+        vm.secCategory = "彩妆";
+
+        vm.thirdCategory = "底妆";
+
+        //筛选过滤的 html
+        vm.categoryFilterDataSource = [
+            {
+                title: "品类选择",
+                body: "<a href=''>美容</a>&nbsp;—&nbsp;<a href=''>基础护理</a>&nbsp;—&nbsp;<a href=''>按摩·冷（霜·膏）</a>"
+
+                //body: "<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 美容</kendo-button>&nbsp;&nbsp;<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 搜索</kendo-button>"
+            },
+            {
+                title: "GBmono关注度",
+                body: "<a class='gbmonoFilter-click' href=''>关注度指标</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>扫码次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>收藏次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>搜索次数</a>&nbsp;&nbsp;<a class='gbmonoFilter' href=''>分享次数</a>"
+            },
+            {
+                title: "日期选择",
+                body: "<div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近 30 天</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近2个月</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近3个月</a></div><div class='categoryTop-line col-md-1'><a href='' ng-click=''>最近6个月</a></div><div class='col-md-2 col-xs-12 categoryTop-line'><select style='padding-top:0;padding-bottom:0' id='nnn' class='col-md-12 col-xs-12 ' ng-options='date for date in vm.date' ng-model='vm.dateTime' ng-change='vm.dateChange()'></select></div>"
+            }
+        ]
         vm.dateTime = "--选择时间--";
 
         vm.date = [
@@ -344,13 +333,13 @@
                     }
                 },
                 legend: {
-                    data: [vm.thirdCategory, vm.secCategory, '关注人数']
+                    data: ['单品', '三级品类', '关注人数']
                 },
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['2016/01/01', '2016/01/08', '2016/01/15', '2016/01/22', '2016/01/29',
-                                    '2016/02/05', '2016/02/12', '2016/02/19', '2016/02/26', '2016/03/06', '2016/03/13', '2016/03/20'
+                        data: ['2017/01/01', '2017/01/08', '2017/01/15', '2017/01/22', '2017/01/29',
+                                    '2017/02/05', '2017/02/12', '2017/02/19', '2017/02/26', '2017/03/06', '2017/03/13', '2017/03/20'
                         ]
                     }
                 ],
@@ -378,24 +367,24 @@
                 ],
                 series: [
                     {
-                        name: vm.thirdCategory,
+                        name: '单品',
                         type: 'bar',
                         itemStyle: {
                             normal: {
                                 color: '#249CFA',
                             }
                         },
-                        data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
+                        data: [1, 2, 3, 4, 4, 3, 4, 5, 4, 5, 4, 4]
                     },
                     {
-                        name: vm.secCategory,
+                        name: '三级品类',
                         type: 'bar',
                         itemStyle: {
                             normal: {
                                 color: '#AAACB2',
                             }
                         },
-                        data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
+                        data: [1, 2, 3, 2, 1, 3, 2, 1, 3, 3, 2, 1]
                     },
                     {
                         name: '关注人数',
@@ -515,7 +504,12 @@
                         name: '2012年',
                         type: 'bar',
                         barWidth: 10,
-                        data: [23438, 30000, 31000, 68807, 13141, 15264]
+                        data: [parseInt(Math.random() * 100 + 1800),
+                            parseInt(Math.random() * 300 + 15000),
+                            parseInt(Math.random() * 500 + 25000),
+                            parseInt(Math.random() * 300 + 18000),
+                            parseInt(Math.random() * 200 + 4000),
+                            parseInt(Math.random() * 100 + 2000)]
                     }
                 ],
                 itemStyle: {
@@ -634,6 +628,37 @@
 
 
 
+
+        function categoryFilterGrid() {
+            // init kendo ui grid with product data
+            vm.categoryFilterGridOptions = {
+                dataSource: {
+                    transport: {
+                        read: function (e) {
+                            e.success(vm.categoryFilterDataSource);
+                        }
+
+                    }
+                },
+                sortable: true,
+                height: 174,
+                filterable: false,
+                columns: [
+                    {
+                        field: "title",
+                        title: "高级筛选",
+                        //template : '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;',
+                        width: 150
+                    },
+                    {
+                        field: "body",
+                        title: "筛选结果",
+                        template: '<span>#= body#</span>',
+                        width: 350
+                    },
+                ]
+            };
+        }
 
     }
 

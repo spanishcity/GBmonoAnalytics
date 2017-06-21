@@ -49,100 +49,89 @@
         ];
         var buildUser = function () {
             return [{
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 25,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "化妆水",
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
-                userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
+                userSex: parseInt(Math.random() * 50 + 1),
+                userAge: 33,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "美容液",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 45,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "厨房·餐具洗涤类",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 31,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "婴儿食品·奶粉",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
-                userId: '用户' + parseInt(Math.random() * 999 + 1),
+                userId: '用户' + parseInt(Math.random() * 9999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 37,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "糖果·饮料·果冻",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 28,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "面膜霜·面膜",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 32,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "养老用品·用具",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 38,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "防虫剂·除湿·干燥剂",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 36,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "减肥·美容",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 34,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "浴室·卫生间用品",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 32,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "女性用药",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }, {
                 userId: '用户' + parseInt(Math.random() * 999 + 1),
                 userSex: (Math.random() > 0.5 ? '男' : '女'),
-                userAge: parseInt(Math.random() * 50 + 1),
+                userAge: 39,
                 userArea: areaList[parseInt(Math.random() * 36)].name,
                 userActive: parseInt(Math.random() * 100 + 1),
                 userCategory: "公共卫生用药",
-                linkGrowthIncrease: (Math.random() > 0.5)
             }
             ];
         }
@@ -333,13 +322,13 @@
                     }
                 },
                 legend: {
-                    data: ['粉底', '彩妆', '关注人数']
+                    data: ['三级品类', '二级品类', '关注人数']
                 },
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['2016/01/01', '2016/01/08', '2016/01/15', '2016/01/22', '2016/01/29',
-                                    '2016/02/05', '2016/02/12', '2016/02/19', '2016/02/26', '2016/03/06', '2016/03/13', '2016/03/20'
+                        data: ['2017/01/01', '2017/01/08', '2017/01/15', '2017/01/22', '2017/01/29',
+                                    '2017/02/05', '2017/02/12', '2017/02/19', '2017/02/26', '2017/03/06', '2017/03/13', '2017/03/20'
                         ]
                     }
                 ],
@@ -367,24 +356,24 @@
                 ],
                 series: [
                     {
-                        name: '粉底',
+                        name: '三级品类',
                         type: 'bar',
                         itemStyle: {
                             normal: {
                                 color: '#249CFA',
                             }
                         },
-                        data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
+                        data: [1, 2, 3, 4, 4, 3, 4, 5, 4, 5, 4, 4]
                     },
                     {
-                        name: '彩妆',
+                        name: '二级品类',
                         type: 'bar',
                         itemStyle: {
                             normal: {
                                 color: '#AAACB2',
                             }
                         },
-                        data: [1, 2, 3, 2, 1, 3, 2, 1, 4, 5, 4, 1]
+                        data: [1, 2, 3, 2, 1, 3, 2, 1, 3, 3, 2, 1]
                     },
                     {
                         name: '关注人数',
@@ -395,7 +384,7 @@
                         data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 12, 14.4, 12.0, 9.5, 12.0, 6.2]
                     }
                 ]
-            };
+            };;
             myChart.setOption(option);
             window.onresize = myChart.resize;
         }
@@ -504,7 +493,12 @@
                         name: '2012年',
                         type: 'bar',
                         barWidth: 10,
-                        data: [23438, 30000, 31000, 68807, 13141, 15264]
+                        data: [parseInt(Math.random() * 100 + 1800),
+                            parseInt(Math.random() * 300 + 15000),
+                            parseInt(Math.random() * 500 + 25000),
+                            parseInt(Math.random() * 300 + 18000),
+                            parseInt(Math.random() * 200 + 6000),
+                            parseInt(Math.random() * 100 + 2000)]
                     }
                 ],
                 itemStyle: {
