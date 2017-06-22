@@ -708,7 +708,7 @@
                         }
                     },
                     data: [{
-                        name: '化妆水',
+                        name: '手霜',
                         value: 9998,
                         textStyle: {
                             normal: {
@@ -716,13 +716,13 @@
                             }
                         }
                     }, {
-                        name: '美容液',
+                        name: '剃毛刀',
                         value: 6181
                     }, {
-                        name: '酵素',
+                        name: '肠胃药',
                         value: 4386
                     }, {
-                        name: '婴儿食品·奶粉',
+                        name: '按摩·冷（霜·膏）',
                         value: 4055
                     }, {
                         name: '口罩',
@@ -731,10 +731,10 @@
                         name: '成人纸尿裤（短裤型）',
                         value: 2244
                     }, {
-                        name: '面膜霜·面膜',
+                        name: '整肠药',
                         value: 1898
                     }, {
-                        name: '健胃·消化',
+                        name: '淡香水',
                         value: 1484
                     }, {
                         name: '防虫剂·除湿·干燥剂',
@@ -767,18 +767,26 @@
                         name: '腿·脚护理',
                         value: 282
                     }, {
-                        name: '手霜',
+                        name: '美容液',
                         value: 688
                     }, {
-                        name: '女性用健发水（TONIC）',
-                        value: 265
+                        name: '眼彩',
+                        value: 865
                     }]
                 }]
             };
             myChart.setOption(option);
             myChart.on('click', function(res){
                 var mappingUrl = {
-                    '口罩': '#/report/categoryProduct/020208/口罩'
+                    '口罩': '#/report/categoryProduct/1142/口罩',
+                    '手霜': '#/report/categoryProduct/1228/手霜',
+                    '肠胃药': '#/report/categoryProduct/1038/肠胃药',
+                    '整肠药': '#/report/categoryProduct/1039/整肠药',
+                    '按摩·冷（霜·膏）': '#/report/categoryProduct/1205/按摩·冷（霜·膏）',
+                    '指甲用具': '#/report/categoryProduct/1274/指甲用具',
+                    '减肥·美容': '#/report/categoryProduct/1157/减肥·美容',
+                    '淡香水': '#/report/categoryProduct/1236/淡香水',
+                    '剃毛刀': '#/report/categoryProduct/1271/剃毛刀',
                 }
                 window.location.href = mappingUrl[res.name];
             });

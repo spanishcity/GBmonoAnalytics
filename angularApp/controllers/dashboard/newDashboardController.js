@@ -156,7 +156,7 @@
                     containLabel: true
                 },
                 xAxis: {
-                    name: '浏览数量',
+                    name: '扫码数量',
                     type: 'value',
                     boundaryGap: [0, 0.01],
                     axisLabel: { //调整x轴的lable  
@@ -177,10 +177,10 @@
                 },
                 series: [
                     {
-                        name: '浏览数量',
+                        name: '扫码数量',
                         type: 'bar',
                         barWidth: 10,
-                        data: vm.categoryCount,
+                        data: vm.categoryCount*100,
                     }
                 ],
                 itemStyle: {
