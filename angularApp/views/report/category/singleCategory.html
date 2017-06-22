@@ -2,6 +2,89 @@
 <div class="page-content">
     <div class="row">
         <div class="col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">品类产品组合分析</h4>
+                    <div class="widget-toolbar no-border">
+                        <a href="" data-action="reload">
+                            <i class="ace-icon fa fa-refresh"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="widget-body">
+                    <div class="widget-main padding-18 no-padding-left no-padding-right">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <!-- <div kendo-grid="grid" k-options="vm.categoryFilterGridOptions"></div> -->
+                                <div class="k-grid k-widget">
+                                    <div class="k-grid-header" style="padding-right: 17px;">
+                                        <div class="k-grid-header-wrap">
+                                            <table>
+                                                <colgroup>
+                                                    <col style="width:10%" />
+                                                    <col style="width:90%" />
+                                                </colgroup>
+                                                <thead role="rowgroup">
+                                                    <tr role="row">
+                                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">高级筛选</a></th>
+                                                        <th class="k-header ng-scope">
+                                                            <div class="col-xs-3 pull-right">
+                                                                <!-- <input kendo-date-picker="" k-format="'yyyy-MM-dd'" style="width: 100%;" ng-model="vm.filter.to" class="ng-pristine ng-valid k-input ng-not-empty ng-touched" data-role="datepicker" type="text" role="combobox" aria-expanded="false" aria-disabled="false" aria-readonly="false"> -->
+                                                            </div>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="k-grid-content">
+                                        <table style="height: auto;">
+                                            <colgroup>
+                                                <col style="width:10%" />
+                                                <col style="width:90%" />
+                                            </colgroup>
+                                            <tbody>
+                                                <tr class="ng-scope">
+                                                    <td id="treeTrigger" style="cursor: pointer;" ng-click="fn.showTree();">
+                                                        <span class="ng-binding">选择时间</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近 30 天</a></div>
+                                                        <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近2个月</a></div>
+                                                        <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近3个月</a></div>
+                                                        <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近6个月</a></div>
+                                                        <div class="col-md-2 col-xs-12 categoryTop-line gbmono_height_input">
+                                                            <select id="nnn" class="col-md-12 col-xs-12 "
+                                                                    ng-options="date for date in vm.date"
+                                                                    ng-model="vm.dateTime"
+                                                                    ng-change="vm.reBuildData();"></select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="ng-scope">
+                                                    <td id="treeTrigger" style="cursor: pointer;" ng-click="fn.showTree();">
+                                                        <span class="ng-binding">品类选择</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="javascript://" class="filterLinks" ng-repeat="item in categroys" ng-bind="item"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--<div class="row">
+        <div class="col-xs-12">
             <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近 30 天</a></div>
             <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近2个月</a></div>
             <div class="categoryTop-line col-md-1"><a href="" ng-click="fn.reBuildData();">最近3个月</a></div>
@@ -13,16 +96,16 @@
                         ng-change="fn.reBuildData();"></select>
             </div>
         </div>
-    </div>
+    </div>-->
 
-    <div class="row margin-top-10">
+    <!--<div class="row margin-top-10">
         <div class="col-xs-12">
             <div class="col-md-1" style="line-height:33px;">品类搜索</div>
             <div class="col-md-4" style="line-height:33px;"><a href=''>美容</a>&nbsp;—&nbsp;<a href=''>基础护理</a>&nbsp;—&nbsp;<a href=''>按摩·冷（霜·膏）</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<kendo-button class='k-primary' ng-click='' style='border-color:#fff!important;background:#FAFAFA;color:#70b3fb!important'> 搜索</kendo-button></div>
             <div class="col-md-2"></div>
             
         </div>
-    </div>
+    </div>-->
 
     <div class="row margin-top-10">
         <div class="col-12" id="widget_product_count">
@@ -159,12 +242,8 @@
                 </div>
             </div>
         </div>
-        <div class="row margin-top-10">
+        <!--<div class="row margin-top-10">
             <div class="col-xs-12">
-                <!-- <div class="col-xs-6">
-                    <div class="dataTables_info" id="sample-table-2_info">Showing 1 to 10 of 23 entries</div>
-                </div>
-                <div class="col-xs-6"> -->
                 <div class="dataTables_paginate paging_bootstrap">
                     <ul class="pagination">
                         <li class="prev disabled"><a href="#">&lt;&lt;</a></li>
@@ -174,10 +253,10 @@
                         <li class="next"><a href="#">&gt;&gt;</a></li>
                     </ul>
                 </div>
-                <!-- </div> -->
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
+<div ng-include="'angularApp/views/report/category/tree.html'"></div>
 
 

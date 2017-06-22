@@ -1,35 +1,80 @@
 ﻿<div class="page-content">
+
     <div class="row">
         <div class="col-xs-12">
             <div class="widget-box transparent">
                 <div class="widget-header">
                     <h4 class="widget-title lighter">品类</h4>
-                    <div class="widget-toolbar no-border">
-                        <a href="" data-action="reload">
-                            <i class="ace-icon fa fa-refresh"></i>
-                        </a>
-                    </div>
                 </div>
-                <div class="widget-body">
-                    <div class="widget-main padding-18 no-padding-left no-padding-right">
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <div kendo-grid="grid"
-                                     k-options="vm.categoryFilterGridOptions">
+            </div>
+            <div class="widget-body">
+                <div class="widget-main padding-18 no-padding-left no-padding-right">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="k-grid k-widget" style="height: 77px;">
+                                <div class="k-grid-header" style="padding-right: 17px;">
+                                    <div class="k-grid-header-wrap">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width:10%" />
+                                                <col style="width:90%" />
+                                            </colgroup>
+                                            <thead role="rowgroup">
+                                                <tr role="row">
+                                                    <th class="k-header ng-scope"><a class="k-link" href="javascript://">高级筛选</a></th>
+                                                    <th class="k-header ng-scope">
+                                                        <!--<div class="col-xs-4 pull-right">
+                                                            <a class="pull-right download" title="下载" href="javascript://"></a>
+                                                            <a class="pull-right tableView" ng-class="{true: 'active', false: ''}[!graphView]" title="数据表格" ng-click="graphView=false;" href="javascript://"></a>
+                                                            <a class="pull-right graphView" ng-class="{true: 'active', false: ''}[graphView]" title="数据图形" ng-click="graphView=true;" href="javascript://"></a>
+                                                        </div>-->
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        
-                        <!--<p>
+                                <div class="k-grid-content" style="height: 41px;">
+                                    <table style="height: auto;">
+                                        <colgroup>
+                                            <col style="width:10%" />
+                                            <col style="width:90%" />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr class="ng-scope">
+                                                <td id="treeTrigger" style="cursor: pointer;" ng-click="fn.showTree();">
+                                                    <span class="ng-binding">品类选择</span>
+                                                </td>
+                                                <td>
+                                                    <a href="javascript://" class="filterLinks" ng-repeat="item in categroys" ng-bind="item"></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="widget-box transparent">
+                                            <div class="widget-body">
+                                                <div class="widget-main padding-18 no-padding-left no-padding-right">
+                                                    <!--<p>
                             <a class="btn btn-info" ng-href="#/products/create">
                                 <i class="ace-icon fa fa-pencil align-top bigger-125"></i>
                             </a>
 
                         </p>-->
-                        <div class="row margin-top-10">
-                            <div class="col-xs-12">
-                                <div kendo-grid="grid"
-                                     k-options="vm.mainGridOptions">
+                                                    <div class="row">
+                                                        <div class="col-xs-12">
+                                                            <div kendo-grid="grid"
+                                                                 k-options="vm.mainGridOptions">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -38,7 +83,9 @@
             </div>
         </div>
     </div>
+
 </div>
+<div ng-include="'angularApp/views/report/category/tree.html'"></div>
 
 <!--暂时先空着，先做列表-->
 <!--filter window -->

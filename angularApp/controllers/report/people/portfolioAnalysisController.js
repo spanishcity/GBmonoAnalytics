@@ -1,13 +1,13 @@
 ﻿(function (module) {
     // inject the controller params
-    ctrl.$inject = ['$scope'];
+    ctrl.$inject = ['$scope','productDataFactory'];
 
     // create controller
     module.controller('portfolioAnalysisController', ctrl);
 
     // controller body
 
-    function ctrl($scope) {
+    function ctrl($scope, productDataFactory) {
         var vm = this;
 
         vm.mapData = [
@@ -153,19 +153,16 @@
                     vm.categoryShow = true;
                     vm.brandShow = false;
                     vm.productShow = false;
-                    categoryGrid();
                     break;
                 case 2:
                     vm.categoryShow = false;
                     vm.brandShow = true;
                     vm.productShow = false;
-                    brandGrid();
                     break;
                 case 3:
                     vm.categoryShow = false;
                     vm.brandShow = false;
                     vm.productShow = true;
-                    productGrid();
                     break;
             }
         }
@@ -204,7 +201,18 @@
         function init() {
             //initCatery();
             categoryGrid();
+            categoryGrid();
+            brandGrid();
+            productGrid();
+            //clickFilter();
         }
+
+        //function clickFilter() {
+        //    $(".gbmono_protfolioAnalysis_date a").on("click", function () {
+        //        $(this).css("border-bottom", "1px solid #249CFA");
+        //        $(this).closest("")
+        //    })
+        //}
 
         //重新加载echarts
         function resertOption() {
@@ -223,8 +231,8 @@
                 ranking: 1,
                 thirdCategory: "美容液",
                 secCategory: "基础化妆",
-                activePopulation: 25490,
-                activeIncrease: (Math.random() > 0.5),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 9900 + 1),
@@ -239,8 +247,8 @@
                 ranking: 2,
                 thirdCategory: "烫发剂",
                 secCategory: "美发",
-                activePopulation: 25000,
-                activeIncrease: (Math.random() > 0.5),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 9900 + 1),
@@ -255,8 +263,8 @@
                 ranking: 3,
                 thirdCategory: "手霜",
                 secCategory: "身体护理",
-                activePopulation: 26890,
-                activeIncrease: (Math.random() > 0.5),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 9900 + 1),
@@ -271,8 +279,8 @@
                 ranking: 4,
                 thirdCategory: "女性用健发水（TONIC）",
                 secCategory: "美发",
-                activePopulation: 18900,
-                activeIncrease: (Math.random() > 0.5),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
                 searchTimes: parseInt(Math.random() * 9900 + 1),
@@ -287,15 +295,15 @@
                 ranking: 5,
                 thirdCategory: "其他染发剂",
                 secCategory: "染发",
-                activePopulation: 17800,
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 11900 + 1),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 8900 + 1),
+                searchTimes: parseInt(Math.random() * 9900 + 1),
                 searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 2990 + 1),
+                collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -303,15 +311,15 @@
                 ranking: 6,
                 thirdCategory: "脸部化妆用具",
                 secCategory: "化妆用品·美容家电",
-                activePopulation: 15890,
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 11900 + 1),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 8900 + 1),
+                searchTimes: parseInt(Math.random() * 9900 + 1),
                 searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 2990 + 1),
+                collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -319,15 +327,15 @@
                 ranking: 7,
                 thirdCategory: "女性用健发水（TONIC）",
                 secCategory: "美发",
-                activePopulation: 18890,
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 11900 + 1),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 8900 + 1),
+                searchTimes: parseInt(Math.random() * 9900 + 1),
                 searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 2990 + 1),
+                collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -335,15 +343,15 @@
                 ranking: 8,
                 thirdCategory: "孕妇奶粉",
                 secCategory: "婴儿食品·奶粉",
-                activePopulation: 19890,
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 9900 + 1),
                 searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -351,15 +359,15 @@
                 ranking: 9,
                 thirdCategory: "化妆水",
                 secCategory: "基础化妆",
-                activePopulation: 15690,
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 9900 + 1),
                 searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -367,16 +375,15 @@
                 ranking: 10,
                 thirdCategory: "眼彩",
                 secCategory: "彩妆",
-                activePopulation: 15698,
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
+                activePopulation: parseInt(Math.random() * 45000 + 1),
+                //activeIncrease: (Math.random() > 0.5),
+                scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
+                searchTimes: parseInt(Math.random() * 9900 + 1),
                 searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
+                collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: parseInt(Math.random() * 5 + 1),
-                attentionIndexIncrease: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -508,7 +515,7 @@
                 ranking: 1,
                 brand: "ROSETTE",
                 brandSeries: "ROSETTE洁面膏",
-                activePopulation: 25490,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -524,7 +531,7 @@
                 ranking: 2,
                 brand: "MAMA BUTTER",
                 brandSeries: "MAMA BUTTER",
-                activePopulation: 22345,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -540,7 +547,7 @@
                 ranking: 3,
                 brand: "资生堂",
                 brandSeries: "资生堂 红色蜜露",
-                activePopulation: 18678,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -556,7 +563,7 @@
                 ranking: 4,
                 brand: "太田胃散",
                 brandSeries: "太田胃散",
-                activePopulation: 19803,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -572,7 +579,7 @@
                 ranking: 5,
                 brand: "GLIDE ENTERPRISE Inc.",
                 brandSeries: "乐丝保湿",
-                activePopulation: 21356,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -588,7 +595,7 @@
                 ranking: 6,
                 brand: "龙角散",
                 brandSeries: "龙角散",
-                activePopulation: 19800,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -604,7 +611,7 @@
                 ranking: 7,
                 brand: "太田胃散",
                 brandSeries: "太田胃散",
-                activePopulation: 16543,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -620,7 +627,7 @@
                 ranking: 8,
                 brand: "资生堂",
                 brandSeries: "资生堂 酵母&双歧杆菌",
-                activePopulation: 13678,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -628,7 +635,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -636,7 +643,7 @@
                 ranking: 9,
                 brand: "EARTH制药",
                 brandSeries: "巴斯洛漫",
-                activePopulation: 14589,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -644,7 +651,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -652,7 +659,7 @@
                 ranking: 10,
                 brand: "日新薬品工業株式会社",
                 brandSeries: "整肠舒乐",
-                activePopulation: 13789,
+                activePopulation: parseInt(Math.random() * 45000 + 1),
                 //activeIncrease: (Math.random() > 0.5),
                 scanTimes: parseInt(Math.random() * 19900 + 1),
                 scanTimesIncrease: (Math.random() > 0.5),
@@ -660,88 +667,109 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 4,
+                attentionIndex: 5,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
             }];
         }
-        
+
+        $scope.fnProduct = {
+            toggleProductDetailColum: function () {
+                $scope.showProductDetailColum = !$scope.showProductDetailColum;
+            }
+        }
 
         //产品
         function productGrid() {
-            $scope.fnProduct = {
-                toggleProductDetailColum: function () {
-                    $scope.showProductDetailColum = !$scope.showProductDetailColum;
-                }
-            }
+
+            productDataFactory.getByCategory(1208)
+                .success(function (data) {
+                    console.log(data)
+
+                    for (var i = 0; i < data.length && i<10; i++) {
+                        data[i].activePopulation = parseInt(Math.random() * 45000 + 1);
+                        //data[i].activeIncrease= (Math.random() > 0.5);
+                        data[i].scanTimes = parseInt(Math.random() * 19900 + 1);
+                        data[i].scanTimesIncrease = (Math.random() > 0.5);
+                        data[i].searchTimes = parseInt(Math.random() * 9900 + 1);
+                        data[i].searchTimesIncrease = (Math.random() > 0.5);
+                        data[i].collectTimes = parseInt(Math.random() * 4990 + 1);
+                        data[i].collectTimesIncrease = (Math.random() > 0.5);
+                        data[i].attentionIndex = 5;
+                        data[i].attentionIndexIncrease = (Math.random() > 0.5);
+                        data[i].linkGrowth = (Math.random() * 5).toFixed(2) + "%";
+                        data[i].linkGrowthIncrease = (Math.random() > 0.5);
+                    }
+                    $scope.tableProductData = data;
+                });
 
             // init kendo ui grid with product data
-            $scope.tableProductData = [{
-                ranking: 1,
-                productName: "花王1",
-                productImg: "Product/4901301335647/4901301335647.jpg",
-                activePopulation: parseInt(Math.random() * 5000 + 1),
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
-                scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
-                searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
-                collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: parseInt(Math.random() * 5 + 1),
-                attentionIndexIncrease: (Math.random() > 0.5),
-                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
-                linkGrowthIncrease: (Math.random() > 0.5)
-            }, {
-                ranking: 2,
-                productName: "花王2",
-                productImg: "Product/4901301334084/4901301334084.jpg",
-                activePopulation: parseInt(Math.random() * 5000 + 1),
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
-                scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
-                searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
-                collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: parseInt(Math.random() * 5 + 1),
-                attentionIndexIncrease: (Math.random() > 0.5),
-                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
-                linkGrowthIncrease: (Math.random() > 0.5)
-            }, {
-                ranking: 3,
-                productName: "花王3",
-                productImg: "Product/4901301334060/4901301334060.jpg",
-                activePopulation: parseInt(Math.random() * 5000 + 1),
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
-                scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
-                searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
-                collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: parseInt(Math.random() * 5 + 1),
-                attentionIndexIncrease: (Math.random() > 0.5),
-                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
-                linkGrowthIncrease: (Math.random() > 0.5)
-            }, {
-                ranking: 4,
-                productName: "花王1",
-                productImg: "Product/4901301335647/4901301335647.jpg",
-                activePopulation: parseInt(Math.random() * 5000 + 1),
-                activeIncrease: (Math.random() > 0.5),
-                scanTimes: parseInt(Math.random() * 99 + 1),
-                scanTimesIncrease: (Math.random() > 0.5),
-                searchTimes: parseInt(Math.random() * 99 + 1),
-                searchTimesIncrease: (Math.random() > 0.5),
-                collectTimes: parseInt(Math.random() * 99 + 1),
-                collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: parseInt(Math.random() * 5 + 1),
-                attentionIndexIncrease: (Math.random() > 0.5),
-                linkGrowth: (Math.random() * 5).toFixed(2) + "%",
-                linkGrowthIncrease: (Math.random() > 0.5)
-            }];
+            //$scope.tableProductData = [{
+            //    ranking: 1,
+            //    productName: "花王1",
+            //    productImg: "Product/4901301335647/4901301335647.jpg",
+            //    activePopulation: parseInt(Math.random() * 5000 + 1),
+            //    activeIncrease: (Math.random() > 0.5),
+            //    scanTimes: parseInt(Math.random() * 99 + 1),
+            //    scanTimesIncrease: (Math.random() > 0.5),
+            //    searchTimes: parseInt(Math.random() * 99 + 1),
+            //    searchTimesIncrease: (Math.random() > 0.5),
+            //    collectTimes: parseInt(Math.random() * 99 + 1),
+            //    collectTimesIncrease: (Math.random() > 0.5),
+            //    attentionIndex: parseInt(Math.random() * 5 + 1),
+            //    attentionIndexIncrease: (Math.random() > 0.5),
+            //    linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+            //    linkGrowthIncrease: (Math.random() > 0.5)
+            //}, {
+            //    ranking: 2,
+            //    productName: "花王2",
+            //    productImg: "Product/4901301334084/4901301334084.jpg",
+            //    activePopulation: parseInt(Math.random() * 5000 + 1),
+            //    activeIncrease: (Math.random() > 0.5),
+            //    scanTimes: parseInt(Math.random() * 99 + 1),
+            //    scanTimesIncrease: (Math.random() > 0.5),
+            //    searchTimes: parseInt(Math.random() * 99 + 1),
+            //    searchTimesIncrease: (Math.random() > 0.5),
+            //    collectTimes: parseInt(Math.random() * 99 + 1),
+            //    collectTimesIncrease: (Math.random() > 0.5),
+            //    attentionIndex: parseInt(Math.random() * 5 + 1),
+            //    attentionIndexIncrease: (Math.random() > 0.5),
+            //    linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+            //    linkGrowthIncrease: (Math.random() > 0.5)
+            //}, {
+            //    ranking: 3,
+            //    productName: "花王3",
+            //    productImg: "Product/4901301334060/4901301334060.jpg",
+            //    activePopulation: parseInt(Math.random() * 5000 + 1),
+            //    activeIncrease: (Math.random() > 0.5),
+            //    scanTimes: parseInt(Math.random() * 99 + 1),
+            //    scanTimesIncrease: (Math.random() > 0.5),
+            //    searchTimes: parseInt(Math.random() * 99 + 1),
+            //    searchTimesIncrease: (Math.random() > 0.5),
+            //    collectTimes: parseInt(Math.random() * 99 + 1),
+            //    collectTimesIncrease: (Math.random() > 0.5),
+            //    attentionIndex: parseInt(Math.random() * 5 + 1),
+            //    attentionIndexIncrease: (Math.random() > 0.5),
+            //    linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+            //    linkGrowthIncrease: (Math.random() > 0.5)
+            //}, {
+            //    ranking: 4,
+            //    productName: "花王1",
+            //    productImg: "Product/4901301335647/4901301335647.jpg",
+            //    activePopulation: parseInt(Math.random() * 5000 + 1),
+            //    activeIncrease: (Math.random() > 0.5),
+            //    scanTimes: parseInt(Math.random() * 99 + 1),
+            //    scanTimesIncrease: (Math.random() > 0.5),
+            //    searchTimes: parseInt(Math.random() * 99 + 1),
+            //    searchTimesIncrease: (Math.random() > 0.5),
+            //    collectTimes: parseInt(Math.random() * 99 + 1),
+            //    collectTimesIncrease: (Math.random() > 0.5),
+            //    attentionIndex: parseInt(Math.random() * 5 + 1),
+            //    attentionIndexIncrease: (Math.random() > 0.5),
+            //    linkGrowth: (Math.random() * 5).toFixed(2) + "%",
+            //    linkGrowthIncrease: (Math.random() > 0.5)
+            //}];
         }
     }
 

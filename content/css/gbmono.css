@@ -133,9 +133,9 @@
 .margin-top-10 {
     margin-top:10px;
 }
-.categoryTop-line {
+/*.categoryTop-line {
     line-height:30px;
-}
+}*/
 .select-right {
     float:right;
 }
@@ -181,6 +181,7 @@
     color:#70b3fb!important;
     box-shadow:none!important;
     border:none;
+    font-size:14px;
 }
 
 .gbmono_tab_click {
@@ -189,6 +190,7 @@
     color:#FAFAFA!important;
     box-shadow:none!important;
     border:none;
+    font-size:14px;
 }
 
 .gbmono_grid_bord {
@@ -231,5 +233,8 @@
     height:140px;
 }
 
-
+.gbmono_height_input {
+    height:38px!important;
+    line-height:38px!important;
+}
 

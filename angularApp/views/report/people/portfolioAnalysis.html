@@ -3,6 +3,105 @@
 <div class="page-content" id="gbmono_portfolioAnalysis">
     <div class="row">
         <div class="col-xs-12">
+            <div class="widget-box transparent">
+                <div class="widget-header">
+                    <h4 class="widget-title lighter">用户产品组合分析</h4>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main padding-18 no-padding-left no-padding-right">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="k-grid k-widget">
+                                <div class="k-grid-header" style="padding-right: 17px;">
+                                    <div class="k-grid-header-wrap">
+                                        <table>
+                                            <colgroup>
+                                                <col style="width:10%" />
+                                                <col style="width:90%" />
+                                            </colgroup>
+                                            <thead role="rowgroup">
+                                                <tr role="row">
+                                                    <th class="k-header ng-scope"><a class="k-link" href="javascript://">高级筛选</a></th>
+                                                    <th class="k-header ng-scope">
+                                                       
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="k-grid-content">
+                                    <table style="height: auto;">
+                                        <colgroup>
+                                            <col style="width:10%" />
+                                            <col style="width:90%" />
+                                        </colgroup>
+                                        <tbody>
+                                            <tr class="ng-scope">
+                                                <td>
+                                                    <span class="ng-binding">日期范围</span>
+                                                </td>
+                                                <td style="vertical-align: middle!important;" class="gbmono_protfolioAnalysis_date">
+                                                    <div class="col-xs-1 gbmono_height_input"><a href="" ng-click="vm.resert();">最近 30 天</a></div>
+                                                    <div class="col-xs-1 gbmono_height_input"><a href="" ng-click="vm.resert();">最近2个月</a></div>
+                                                    <div class="col-xs-1 gbmono_height_input"><a href="" ng-click="vm.resert();">最近3个月</a></div>
+                                                    <div class="col-xs-1 gbmono_height_input"><a href="" ng-click="vm.resert();">最近6个月</a></div>
+                                                    <div class="col-md-2 col-xs-12 gbmono_height_input">
+                                                        <select id="nnn" class="col-md-12 col-xs-12 "
+                                                                ng-options="date for date in vm.date"
+                                                                ng-model="vm.dateTime"
+                                                                ng-change="vm.dateChange()"></select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="ng-scope">
+                                                <td>
+                                                    <span class="ng-binding">性别</span>
+                                                </td>
+                                                <td>
+                                                    <div class="categoryTop-line col-md-1" ng-repeat="sex in vm.sexItem"><a href="" ng-click="vm.sexChange();">{{sex}}</a></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="ng-scope">
+                                                <td>
+                                                    <span class="ng-binding">年龄</span>
+                                                </td>
+                                                <td>
+                                                    <div class="categoryTop-line col-md-1" ng-repeat="age in vm.ageItem"><a href="" ng-click="vm.ageChange();">{{age}}</a></div>
+                                                </td>
+                                            </tr>
+                                            <tr class="ng-scope">
+                                                <td>
+                                                    <span class="ng-binding">地区</span>
+                                                </td>
+                                                <td>
+                                                    <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.areaChange(1);">北京</a></div>
+                                                    <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.areaChange(2);">上海</a></div>
+                                                    <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.areaChange(3);">广州</a></div>
+                                                    <div class="categoryTop-line col-md-2 gbmono_height_input">
+                                                        <select id="nnn" class="col-md-12"
+                                                                ng-options="age for age in vm.areaItem"
+                                                                ng-model="vm.area"
+                                                                ng-change="vm.areaChange()"></select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row margin-top-10">
+        <!--<div class="col-xs-12">
             <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近 30 天</a></div>
             <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近2个月</a></div>
             <div class="categoryTop-line col-md-1"><a href="" ng-click="vm.resert();">最近3个月</a></div>
@@ -32,11 +131,11 @@
                     ng-options="age for age in vm.areaItem"
                     ng-model="vm.area"
                     ng-change="vm.areaChange()"></select>
-        </div>
+        </div>-->
         <div  class="col-xs-12 margin-top-10">
-            <kendo-button class='k-primary {{vm.categoryShow?"gbmono_tab_click":"gbmono_tab_unclick"}}' ng-click='vm.tabGridShow(1);' ng-class="gbmonoTab"> 品类</kendo-button>
-            <kendo-button class='k-primary {{vm.brandShow?"gbmono_tab_click":"gbmono_tab_unclick"}}' ng-click='vm.tabGridShow(2);' ng-class="gbmonoTab"> 品牌</kendo-button>
-            <kendo-button class='k-primary {{vm.productShow?"gbmono_tab_click":"gbmono_tab_unclick"}}' ng-click='vm.tabGridShow(3);' ng-class="gbmonoTab"> 产品</kendo-button>
+            <kendo-button class='k-primary {{vm.categoryShow?"gbmono_tab_click":"gbmono_tab_unclick"}}' ng-click='vm.tabGridShow(1);' > 品类</kendo-button>
+            <kendo-button class='k-primary {{vm.brandShow?"gbmono_tab_click":"gbmono_tab_unclick"}}' ng-click='vm.tabGridShow(2);' > 品牌</kendo-button>
+            <kendo-button class='k-primary {{vm.productShow?"gbmono_tab_click":"gbmono_tab_unclick"}}' ng-click='vm.tabGridShow(3);'> 产品</kendo-button>
         </div>
     </div>
 
@@ -54,7 +153,7 @@
                         <table role="grid">
                             <thead role="rowgroup">
                                 <tr role="row">
-                                    <th class="k-header ng-scope" width="100"><a class="k-link" href="javascript://">排行</a></th>
+                                    <th class="k-header ng-scope" width="70"><a class="k-link" href="javascript://">排行</a></th>
                                     <th class="k-header ng-scope"><a class="k-link" href="javascript://">三级品类</a></th>
                                     <th class="k-header ng-scope"><a class="k-link" href="javascript://">二级品类</a></th>
                                     <th class="k-header ng-scope" title="集匠关注度指标综合用户的扫码，浏览，搜索和收藏的数量，反映产品热度的综合指标" ng-click="fnCategory.toggleCategoryDetailColum();"><a class="k-link" href="javascript://">集匠关注度指标<span class="questionMark"></span></a></th>
@@ -72,12 +171,12 @@
                     <table role="grid">
                         <tbody role="rowgroup">
                             <tr class="ng-scope" ng-repeat="item in tableCategoryData">
-                                <td role="gridcell"><span ng-bind="item.ranking" class="ng-binding"></span></td>
+                                <td role="gridcell" width="70"><span ng-bind="item.ranking" class="ng-binding"></span></td>
                                 <td role="gridcell"><span ng-bind="item.thirdCategory" class="ng-binding"></span></td>
                                 <td role="gridcell"><span ng-bind="item.secCategory" class="ng-binding"></span></td>
                                 <td role="gridcell">
                                     <span ng-bind="item.attentionIndex" class="ng-binding"></span>
-                                    <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>
+                                    <!--<span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>-->
                                 </td>
                                 <td role="gridcell" ng-show="showCategoryDetailColum">
                                     <span ng-bind="item.scanTimes" class="ng-binding"></span>
@@ -119,7 +218,7 @@
                         <table role="grid">
                             <thead role="rowgroup">
                                 <tr role="row">
-                                    <th class="k-header ng-scope" width="100"><a class="k-link" href="javascript://">排行</a></th>
+                                    <th class="k-header ng-scope" width="70"><a class="k-link" href="javascript://">排行</a></th>
                                     <th class="k-header ng-scope"><a class="k-link" href="javascript://">品牌</a></th>
                                     <th class="k-header ng-scope"><a class="k-link" href="javascript://">品牌系列</a></th>
                                     <th class="k-header ng-scope" title="集匠关注度指标综合用户的扫码，浏览，搜索和收藏的数量，反映产品热度的综合指标" ng-click="fnBrand.toggleBrandDetailColum();"><a class="k-link" href="javascript://">集匠关注度指标<span class="questionMark"></span></a></th>
@@ -137,12 +236,12 @@
                     <table role="grid">
                         <tbody role="rowgroup">
                             <tr class="ng-scope" ng-repeat="item in tableBrandData">
-                                <td role="gridcell"><span ng-bind="item.ranking" class="ng-binding"></span></td>
+                                <td role="gridcell" width="70"><span ng-bind="item.ranking" class="ng-binding"></span></td>
                                 <td role="gridcell"><span ng-bind="item.brand" class="ng-binding"></span></td>
                                 <td role="gridcell"><span ng-bind="item.brandSeries" class="ng-binding"></span></td>
                                 <td role="gridcell">
                                     <span ng-bind="item.attentionIndex" class="ng-binding"></span>
-                                    <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>
+                                    <!--<span ng-class="{true: 'growthUp', false: 'growthDown'}[item.attentionIndexIncrease]"></span>-->
                                 </td>
                                 <td role="gridcell" ng-show="showBrandDetailColum">
                                     <span ng-bind="item.scanTimes" class="ng-binding"></span>
@@ -172,12 +271,8 @@
         </div>
     </div>
     <!--产品-->
-    <div class="row margin-top-10" ng-show="vm.productShow">
+    <!--<div class="row margin-top-10" ng-show="vm.productShow">
         <div class="col-xs-12">
-            <!-- <div kendo-grid="grid" k-options="vm.mainGridOptions"></div> -->
-            <!--<div kendo-grid="grid"
-                 k-options="vm.mainGridOptions">
-            </div>-->
             <div class="k-grid k-widget">
                 <div class="k-grid-header" style="padding-right: 17px;">
                     <div class="k-grid-header-wrap">
@@ -237,13 +332,73 @@
             </div>
 
         </div>
-    </div>
-    <div class="row margin-top-10">
-        <div class="col-xs-12">
-            <!-- <div class="col-xs-6">
-                <div class="dataTables_info" id="sample-table-2_info">Showing 1 to 10 of 23 entries</div>
+    </div>-->
+        <div class="row margin-top-10"  ng-show="vm.productShow">
+            <div class="col-xs-12">
+                <!-- <div kendo-grid="grid" k-options="vm.mainGridOptions"></div> -->
+                <div class="k-grid k-widget">
+                    <div class="k-grid-header" style="padding-right: 17px;">
+                        <div class="k-grid-header-wrap">
+                            <table role="grid">
+                                <thead role="rowgroup">
+                                    <tr role="row">
+                                        <th class="k-header ng-scope" width="70"><a class="k-link" href="javascript://">排行</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">产品</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">品牌</a></th>
+                                        <th class="k-header ng-scope" title="集匠关注度指标综合用户的扫码，浏览，搜索和收藏的数量，反映产品热度的综合指标" ng-click="fnProduct.toggleProductDetailColum();"><a class="k-link" href="javascript://">集匠关注度指标<span class="questionMark"></span></a></th>
+                                        <th class="k-header ng-scope" ng-show="showProductDetailColum"><a class="k-link" href="javascript://">扫码次数</a></th>
+                                        <th class="k-header ng-scope" ng-show="showProductDetailColum"><a class="k-link" href="javascript://">搜索次数</a></th>
+                                        <th class="k-header ng-scope" ng-show="showProductDetailColum"><a class="k-link" href="javascript://">收藏次数</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">活跃人数</a></th>
+                                        <th class="k-header ng-scope"><a class="k-link" href="javascript://">活跃人数环比增幅</a></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="k-grid-content">
+                        <table role="grid">
+                            <tbody role="rowgroup">
+                                <tr class="ng-scope" ng-repeat="item in tableProductData">
+                                    <td role="gridcell" width="70"><span class="ng-binding">{{$index+1}}</span></td>
+                                    <td role="gridcell"><span ng-bind="item.primaryName" class="ng-binding"></span></td>
+                                    <!--<td role="gridcell">
+                                    <div class="product-grid-img" style="background-image: url(http://112.74.62.31/images/{{item.productImg}});"></div>
+                                </td>-->
+                                    <td role="gridcell"><span ng-bind="item.brandName" class="ng-binding"></span></td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.attentionIndex" class="ng-binding"></span>
+                                    </td>
+                                    <td role="gridcell" ng-show="showProductDetailColum">
+                                        <span ng-bind="item.scanTimes" class="ng-binding"></span>
+                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.scanTimesIncrease]"></span>
+                                    </td>
+                                    <td role="gridcell" ng-show="showProductDetailColum">
+                                        <span ng-bind="item.searchTimes" class="ng-binding"></span>
+                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.searchTimesIncrease]"></span>
+                                    </td>
+                                    <td role="gridcell" ng-show="showProductDetailColum">
+                                        <span ng-bind="item.collectTimes" class="ng-binding"></span>
+                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.collectTimesIncrease]"></span>
+                                    </td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.activePopulation" ng-class="{true: 'growthUpColor', false: 'growthDownColor'}[item.activeIncrease]" class="ng-binding"></span>
+                                    </td>
+                                    <td role="gridcell">
+                                        <span ng-bind="item.linkGrowth" class="ng-binding"></span>
+                                        <span ng-class="{true: 'growthUp', false: 'growthDown'}[item.linkGrowthIncrease]"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-6"> -->
+        </div>
+        
+        
+        <!--<div class="row margin-top-10">
+        <div class="col-xs-12">
             <div class="dataTables_paginate paging_bootstrap">
                 <ul class="pagination">
                     <li class="prev disabled"><a href="">&lt;&lt;</a></li>
@@ -253,9 +408,8 @@
                     <li class="next"><a href="">&gt;&gt;</a></li>
                 </ul>
             </div>
-            <!-- </div> -->
         </div>
-    </div>
+    </div>-->
     </div>
 </div>
 

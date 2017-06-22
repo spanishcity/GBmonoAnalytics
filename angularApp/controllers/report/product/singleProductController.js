@@ -261,22 +261,26 @@
             value:""
         };
         vm.productName = "";
-        vm.search.value;
+        vm.search.value ="";
         // reload data
         vm.reload = function () {
             vm.searchModel = {
                 barCode: vm.search.value,
                 fullProductCode: ""
             };
-            productDataFactory.search(vm.searchModel)
-                                .success(function (data) {
-                                    console.log(data)
-                                    // kendo grid callback
-                                    vm.productName = data[0].primaryName;
-                                    vm.secCategory = data[0].category.parentCategory.name;
-                                    vm.thirdCategory = data[0].category.name;
-                                    init();
-                                });
+            if (vm.searchModel.barCode != "")
+                productDataFactory.search(vm.searchModel)
+                                    .success(function (data) {
+                                        console.log(data)
+                                        if (data.length == 0) {
+                                            alert("条形码不存在！");
+                                        }
+                                        // kendo grid callback
+                                        vm.productName = data[0].primaryName;
+                                        vm.secCategory = data[0].category.parentCategory.name;
+                                        vm.thirdCategory = data[0].category.name;
+                                        init();
+                                    });
             // parent grid
 
         }

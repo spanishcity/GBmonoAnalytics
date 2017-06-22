@@ -13,43 +13,20 @@
     function ctrl($scope, productDataFactory, $routeParams) {
         var vm = this;
 
-        var categoryId = $routeParams.id ? parseInt($routeParams.id) : 0;
-        var categoryName = $routeParams.name ? $routeParams.name : "";
+        vm.categoryName = "";
+        vm.categoryId = $routeParams.id ? parseInt($routeParams.id) : 0;
+        vm.categoryName = $routeParams.name ? $routeParams.name : "";
 
         var addjson = {
              
         }
         init();
 
-        vm.reload = function (categoryId) {
-            console.log(categoryId)
-            productDataFactory.getByCategory(categoryId)
-                .success(function (data) {
-                    console.log(data)
-
-                    for (var i = 0; i < data.length; i++) {
-                        data[i].activePopulation = parseInt(Math.random() * 5000 + 1);
-                        data[i].activeIncrease= (Math.random() > 0.5);
-                        data[i].scanTimes= parseInt(Math.random() * 99 + 1);
-                        data[i].scanTimesIncrease= (Math.random() > 0.5);
-                        data[i].searchTimes= parseInt(Math.random() * 99 + 1);
-                        data[i].searchTimesIncrease= (Math.random() > 0.5);
-                        data[i].collectTimes= parseInt(Math.random() * 99 + 1);
-                        data[i].collectTimesIncrease= (Math.random() > 0.5);
-                        data[i].attentionIndex = 4;
-                        data[i].attentionIndexIncrease= (Math.random() > 0.5);
-                        data[i].linkGrowth = (Math.random() * 5).toFixed(2) + "%";
-                        data[i].linkGrowthIncrease = (Math.random() > 0.5);
-                    }
-                    vm.productsTable = data;
-                });
-        }
+        
 
         function init() {
-            console.log(categoryId)
-            console.log(categoryName)
-            categoryFilterGrid();
             categoryGrid();
+            writeCategory();
         }
 
         vm.searchType = [{
@@ -81,7 +58,6 @@
                    }]
         vm.searchTypeValue = 0;
 
-
         vm.categoryWinOpen = function(){
             vm.categoryWin.open();
         }
@@ -104,56 +80,7 @@
 
         // retreive product data and binding it into kendo grid
         function categoryGrid(){
-            $scope.categroys = [];
-            $scope.fn = {
-                toggleDetailColum: function(){
-                    $scope.showDetailColum = !$scope.showDetailColum;
-                },
-                showTree: function(){
-                    var hideTree = function (text) {
-                        var isExit = false;
-                        for(var i in $scope.categroys){
-                            if( text == $scope.categroys[i] ){
-                                isExit = true;
-                            }
-                        }
-                        if (!isExit) {
-                            $scope.categroys = [];
-                            $scope.categroys.push(text);
-                        }  
-
-                        $scope.showTree = false;
-                        $scope.$apply();
-                    }
-                    var offset = $('#treeTrigger').offset(), location = $('.main-content').offset(), width = $('#treeTrigger').width(),
-                        padding = parseInt($('#treeTrigger').css('paddingLeft')) + parseInt($('#treeTrigger').css('paddingRight'));
-                    $('#popTree').css({
-                        'top': (offset.top - location.top) + 'px',
-                        'left': (offset.left - location.left + width + padding) + 'px'
-                    });
-                    $scope.showTree = true;
-
-                    $('#popTree').find('a').unbind('click').bind('click', function(){
-                        var ul = $(this).closest('li').find('ul').eq(0);
-                        if( ul.length ){
-                            ul.toggle();
-                            $(this).siblings('span').toggleClass('k-minus k-plus');
-                        }else{
-                            hideTree($(this).text());
-                            vm.reload($(this).attr("data-id"));
-                        }
-                        return false;
-                    });
-                },
-                removeCategory: function(txt){
-                    for(var i in $scope.categroys){
-                        if( txt == $scope.categroys[i] ){
-                            $scope.categroys.splice(i, 1);
-                            break;
-                        }
-                    }
-                }
-            }
+            
             // init kendo ui grid with product data
             $scope.tableData = [{
                 ranking:1,
@@ -220,98 +147,79 @@
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
             }];
-            /*vm.mainGridOptions = {
-                dataSource: {
-                    transport: {
-                        read: function (e) {
-                            var data = [{
-                                ranking:1,
-                                productName: "花王1",
-                                productImg: "Product/4901301335647/4901301335647.jpg",
-                                activePopulation: 2000,
-                                attentionIndex: 52,
-                                linkGrowth: "1.2%"
-                            }, {
-                                ranking: 2,
-                                productName: "花王2",
-                                productImg: "Product/4901301334084/4901301334084.jpg",
-                                activePopulation: 2000,
-                                attentionIndex: 52,
-                                linkGrowth: "1.2%"
-                            }, {
-                                ranking: 3,
-                                productName: "花王3",
-                                productImg: "Product/4901301334060/4901301334060.jpg",
-                                activePopulation: 2000,
-                                attentionIndex: 52,
-                                linkGrowth: "1.2%"
-                            }]
-                            e.success(data)
-                            //    productDataFactory.search(vm.searchModel)
-                            //        .success(function (data) {
-                            //            console.log(data)
-                            //            // kendo grid callback
-                            //            e.success(data);
-                            //        });
-                        }
-                    }
-                },
-                sortable: true,
-                // height: '510',
-                filterable: false,
-                columns: [
-                    {
-                        field: "ranking", title: "排行", width: 250
-                    },
-                    { field: "productName", title: "产品", width: 250 },
-                    {
-                        field: "productImg", title: "图片",
-                        template:  "<div class='product-grid-img'" +
-                                       "style='background-image: url(#:gbmono.img_path + '/' +  data.productImg#);'></div>",
-                        width: 200
-                    },
-                    {
-                        field: "activePopulation", title: "活跃人数", width: 200
-                    },
-                    {
-                        field: "attentionIndex", title: "关注度指标", width: 200
-                    },
-                    {
-                        field: "linkGrowth", title: "环比增幅", width: 200
-                    }
-                ]
-            };*/
+          
         }
 
-        function categoryFilterGrid() {
-            // init kendo ui grid with product data
-            //vm.categoryFilterGridOptions = {
-            //    dataSource: {
-            //        transport: {
-            //            read: function (e) {
-            //                e.success(vm.categoryFilterDataSource);
-            //            }
-                            
-            //        }
-            //    },
-            //    sortable: true,
-            //    height: 77,
-            //    filterable: false,
-            //    columns: [
-            //        {
-            //            field:"title",
-            //            title: "高级筛选",
-            //            //template : '<a class="btn btn-xs btn-success" ng-click="getTags(dataItem.productId)"><i class="ace-icon fa fa-tags bigger-120"></i></a>&nbsp;&nbsp;',
-            //            width: 150
-            //        },
-            //        {
-            //            field: "body",
-            //            title: "筛选结果",
-            //            template: '<span>#= body#</span>',
-            //            width: 250
-            //        },
-            //    ]
-            //};
+
+        $scope.fn = {
+            toggleDetailColum: function () {
+                $scope.showDetailColum = !$scope.showDetailColum;
+            },
+            showTree: function () {
+                var hideTree = function (text) {
+                    var isExit = false;
+                    if (text == vm.categoryName) {
+                        isExit = true;
+                    }
+                    if (!isExit) {
+                        vm.categoryName = text;
+                    }
+
+                    $scope.showTree = false;
+                    $scope.$apply();
+                }
+                var offset = $('#treeTrigger').offset(), location = $('.main-content').offset(), width = $('#treeTrigger').width(),
+                    padding = parseInt($('#treeTrigger').css('paddingLeft')) + parseInt($('#treeTrigger').css('paddingRight'));
+                $('#popTree').css({
+                    'top': (offset.top - location.top) + 'px',
+                    'left': (offset.left - location.left + width + padding) + 'px'
+                });
+                $scope.showTree = true;
+
+                $('#popTree').find('a').unbind('click').bind('click', function () {
+                    var ul = $(this).closest('li').find('ul').eq(0);
+                    if (ul.length) {
+                        ul.toggle();
+                        $(this).siblings('span').toggleClass('k-minus k-plus');
+                    } else {
+                        hideTree($(this).text());
+                        reload($(this).attr("data-id"));
+                    }
+                    return false;
+                });
+            }
+        }
+
+        function writeCategory() {
+            console.log(vm.categoryId);
+            reload(vm.categoryId);
+            //var categoryGrid = new categoryGrid();
+
+            //$scope.$apply();
+        }
+
+        function reload(categoryId) {
+            console.log(categoryId)
+            productDataFactory.getByCategory(categoryId)
+                .success(function (data) {
+                    console.log(data)
+
+                    for (var i = 0; i < data.length; i++) {
+                        data[i].activePopulation= parseInt(Math.random() * 45000 + 1);
+                        //data[i].activeIncrease= (Math.random() > 0.5);
+                        data[i].scanTimes= parseInt(Math.random() * 19900 + 1);
+                        data[i].scanTimesIncrease= (Math.random() > 0.5);
+                        data[i].searchTimes= parseInt(Math.random() * 9900 + 1);
+                        data[i].searchTimesIncrease= (Math.random() > 0.5);
+                        data[i].collectTimes= parseInt(Math.random() * 4990 + 1);
+                        data[i].collectTimesIncrease= (Math.random() > 0.5);
+                        data[i].attentionIndex= 5;
+                        data[i].attentionIndexIncrease = (Math.random() > 0.5);
+                        data[i].linkGrowth = (Math.random() * 5).toFixed(2) + "%";
+                        data[i].linkGrowthIncrease = (Math.random() > 0.5);
+                    }
+                    vm.productsTable = data;
+                });
         }
     }
 })(angular.module('gbmono'));
