@@ -201,22 +201,71 @@
         function init() {
             //initCatery();
             categoryGrid();
+            brandGrid();
+            productGrid();
+            clickFilter();
+        }
+
+        function clickFilter() {
+            $(".gbmono_protfolioAnalysis_date a").on("click", function () {
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).closest("div").siblings("div").find("a").css("border-bottom", "none");
+                vm.reBuildData();
+            })
+            $(".gbmono_protfolioAnalysis_sex").delegate("a","click", function () {
+                console.log("sex")
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).closest("div").siblings("div").find("a").css("border-bottom", "none");
+                vm.reBuildData();
+            })
+            $(".gbmono_protfolioAnalysis_age").delegate("a", "click", function () {
+                console.log("age")
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).closest("div").siblings("div").find("a").css("border-bottom", "none");
+                vm.reBuildData();
+            })
+            $(".gbmono_protfolioAnalysis_area a").on("click", function () {
+                console.log("area")
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).closest("div").siblings("div").find("a").css("border-bottom", "none");
+                vm.reBuildData();
+            })
+        }
+
+        vm.changeArea = function () {
+            $(".gbmono_protfolioAnalysis_area a").css("border-bottom", "none");
+                vm.reBuildData();
+        }
+
+        vm.changeDate = function () {
+            $(".gbmono_protfolioAnalysis_date a").css("border-bottom", "none");
+                vm.reBuildData();
+        }
+
+        //function gridShowLoading(){
+
+        //    var ajaxContainer = $(".gbmono_grid_bord");
+        //    kendo.ui.progress(ajaxContainer, true);
+           
+
+        //}
+
+        //function gridHideLoading () {
+        //    var ajaxContainer = $(".gbmono_grid_bord");
+        //    //解除锁定
+        //    kendo.ui.progress(ajaxContainer, false);
+
+        //}
+
+        vm.reBuildData = function () {
             categoryGrid();
             brandGrid();
             productGrid();
-            //clickFilter();
         }
 
-        //function clickFilter() {
-        //    $(".gbmono_protfolioAnalysis_date a").on("click", function () {
-        //        $(this).css("border-bottom", "1px solid #249CFA");
-        //        $(this).closest("")
-        //    })
-        //}
 
         //重新加载echarts
         function resertOption() {
-            console.log(111)
         }
 
         //品类
@@ -226,6 +275,7 @@
                     $scope.showCategoryDetailColum = !$scope.showCategoryDetailColum;
                 }
             }
+            $scope.tableCategoryData = [];
             // init kendo ui grid with product data
             $scope.tableCategoryData = [{
                 ranking: 1,
@@ -239,10 +289,10 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
-                linkGrowthIncrease: (Math.random() > 0.5)
+                linkGrowthIncrease: (Math.random() > 0.5),
             }, {
                 ranking: 2,
                 thirdCategory: "烫发剂",
@@ -255,7 +305,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -271,7 +321,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -287,7 +337,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -303,7 +353,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -319,7 +369,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -335,7 +385,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -351,7 +401,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -367,7 +417,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -383,7 +433,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -509,7 +559,7 @@
                     $scope.showBrandDetailColum = !$scope.showBrandDetailColum;
                 }
             }
-
+            $scope.tableBrandData = [];
             // init kendo ui grid with product data
             $scope.tableBrandData = [{
                 ranking: 1,
@@ -523,7 +573,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -539,7 +589,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -555,7 +605,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -571,7 +621,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -587,7 +637,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -603,7 +653,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -619,7 +669,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -635,7 +685,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -651,7 +701,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -667,7 +717,7 @@
                 searchTimesIncrease: (Math.random() > 0.5),
                 collectTimes: parseInt(Math.random() * 4990 + 1),
                 collectTimesIncrease: (Math.random() > 0.5),
-                attentionIndex: 5,
+                attentionIndex: 4,
                 attentionIndexIncrease: (Math.random() > 0.5),
                 linkGrowth: (Math.random() * 5).toFixed(2) + "%",
                 linkGrowthIncrease: (Math.random() > 0.5)
@@ -682,10 +732,9 @@
 
         //产品
         function productGrid() {
-
+            $scope.tableProductData = [];
             productDataFactory.getByCategory(1208)
                 .success(function (data) {
-                    console.log(data)
 
                     for (var i = 0; i < data.length && i<10; i++) {
                         data[i].activePopulation = parseInt(Math.random() * 45000 + 1);
@@ -696,7 +745,7 @@
                         data[i].searchTimesIncrease = (Math.random() > 0.5);
                         data[i].collectTimes = parseInt(Math.random() * 4990 + 1);
                         data[i].collectTimesIncrease = (Math.random() > 0.5);
-                        data[i].attentionIndex = 5;
+                        data[i].attentionIndex = 4;
                         data[i].attentionIndexIncrease = (Math.random() > 0.5);
                         data[i].linkGrowth = (Math.random() * 5).toFixed(2) + "%";
                         data[i].linkGrowthIncrease = (Math.random() > 0.5);

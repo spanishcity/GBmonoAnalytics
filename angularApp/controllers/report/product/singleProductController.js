@@ -311,11 +311,27 @@
                 initSex();
                 initAge();
                 initArea();
+                clickFilter();
             })
             //initCatery();
             //词云echarts3已经没有，echarts2中有词云，使用的是echarts3。
             // catory();
         }
+
+        function clickFilter() {
+            $(".gbmono_protfolioAnalysis_date a").on("click", function () {
+                console.log("date")
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).closest("div").siblings("div").find("a").css("border-bottom", "none");
+            })
+
+        }
+
+        vm.changeDate = function () {
+            $(".gbmono_protfolioAnalysis_date a").css("border-bottom", "none");
+            $scope.fn.reBuildData();
+        }
+
 
         function initSingle() {
             var myChart = echarts.init(document.getElementById('singleCategory'));

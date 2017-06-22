@@ -51,7 +51,7 @@
                                                         <select id="nnn" class="col-md-12 col-xs-12 "
                                                                 ng-options="date for date in vm.date"
                                                                 ng-model="vm.dateTime"
-                                                                ng-change="vm.dateChange()"></select>
+                                                                ng-change="vm.changeDate()"></select>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -59,23 +59,23 @@
                                                 <td>
                                                     <span class="ng-binding">性别</span>
                                                 </td>
-                                                <td>
-                                                    <div class="categoryTop-line col-md-1" ng-repeat="sex in vm.sexItem"><a href="" ng-click="vm.sexChange();">{{sex}}</a></div>
+                                                <td class="gbmono_protfolioAnalysis_sex">
+                                                    <div class="categoryTop-line col-md-1" ng-repeat="sex in vm.sexItem"><a href="" ng-click="vm.reBuildData();">{{sex}}</a></div>
                                                 </td>
                                             </tr>
                                             <tr class="ng-scope">
                                                 <td>
                                                     <span class="ng-binding">年龄</span>
                                                 </td>
-                                                <td>
-                                                    <div class="categoryTop-line col-md-1" ng-repeat="age in vm.ageItem"><a href="" ng-click="vm.ageChange();">{{age}}</a></div>
+                                                <td  class="gbmono_protfolioAnalysis_age">
+                                                    <div class="categoryTop-line col-md-1" ng-repeat="age in vm.ageItem"><a href="" ng-click="vm.reBuildData();">{{age}}</a></div>
                                                 </td>
                                             </tr>
                                             <tr class="ng-scope">
                                                 <td>
                                                     <span class="ng-binding">地区</span>
                                                 </td>
-                                                <td>
+                                                <td  class="gbmono_protfolioAnalysis_area">
                                                     <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.areaChange(1);">北京</a></div>
                                                     <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.areaChange(2);">上海</a></div>
                                                     <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.areaChange(3);">广州</a></div>
@@ -83,7 +83,7 @@
                                                         <select id="nnn" class="col-md-12"
                                                                 ng-options="age for age in vm.areaItem"
                                                                 ng-model="vm.area"
-                                                                ng-change="vm.areaChange()"></select>
+                                                                ng-change="vm.changeArea()"></select>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -141,7 +141,7 @@
 
     <div class="gbmono_grid_bord">
     <!--品类-->
-    <div class="row margin-top-10" ng-show="vm.categoryShow">
+    <div class="row margin-top-10 gbmono_showLoading" ng-show="vm.categoryShow">
         <div class="col-xs-12">
             <!-- <div kendo-grid="grid" k-options="vm.mainGridOptions"></div> -->
             <!--<div kendo-grid="grid"
@@ -356,7 +356,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="k-grid-content">
+                    <div class="k-grid-content" style="height:465px;">
                         <table role="grid">
                             <tbody role="rowgroup">
                                 <tr class="ng-scope" ng-repeat="item in tableProductData">

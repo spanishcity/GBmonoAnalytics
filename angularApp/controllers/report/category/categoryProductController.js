@@ -213,7 +213,7 @@
                         data[i].searchTimesIncrease= (Math.random() > 0.5);
                         data[i].collectTimes= parseInt(Math.random() * 4990 + 1);
                         data[i].collectTimesIncrease= (Math.random() > 0.5);
-                        data[i].attentionIndex= 5;
+                        data[i].attentionIndex= 4;
                         data[i].attentionIndexIncrease = (Math.random() > 0.5);
                         data[i].linkGrowth = (Math.random() * 5).toFixed(2) + "%";
                         data[i].linkGrowthIncrease = (Math.random() > 0.5);

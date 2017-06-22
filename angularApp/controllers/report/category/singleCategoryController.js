@@ -259,6 +259,8 @@
             })
         }
 
+        
+
         vm.topCategory = "美容";
 
         vm.secCategory = "彩妆";
@@ -309,10 +311,25 @@
                 initAge();
                 initArea();
                 categoryGrid();
+                clickFilter();
             })
             //initCatery();
             //词云echarts3已经没有，echarts2中有词云，使用的是echarts3。
             // catory();
+        }
+
+        function clickFilter() {
+            $(".gbmono_protfolioAnalysis_date a").on("click", function () {
+                console.log("date")
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).closest("div").siblings("div").find("a").css("border-bottom", "none");
+            })
+
+        }
+
+        vm.changeDate = function () {
+            $(".gbmono_protfolioAnalysis_date a").css("border-bottom", "none");
+            vm.reBuildData();
         }
 
         function initSingle() {
@@ -659,7 +676,7 @@
                             $(this).siblings('span').toggleClass('k-minus k-plus');
                         } else {
                             hideTree($(this).text());
-                            //vm.reload($(this).attr("data-id"));
+                            vm.reload($(this).attr("data-id"));
                         }
                         return false;
                     });

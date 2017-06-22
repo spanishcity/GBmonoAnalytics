@@ -49,7 +49,7 @@
                                                     <td id="treeTrigger" style="cursor: pointer;" ng-click="fn.showTree();">
                                                         <span class="ng-binding">选择时间</span>
                                                     </td>
-                                                    <td>
+                                                    <td  class="gbmono_protfolioAnalysis_date">
                                                         <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近 30 天</a></div>
                                                         <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近2个月</a></div>
                                                         <div class="categoryTop-line col-md-1 gbmono_height_input"><a href="" ng-click="vm.reBuildData();">最近3个月</a></div>
@@ -58,7 +58,7 @@
                                                             <select id="nnn" class="col-md-12 col-xs-12 "
                                                                     ng-options="date for date in vm.date"
                                                                     ng-model="vm.dateTime"
-                                                                    ng-change="vm.dateChange()"></select>
+                                                                    ng-change="vm.changeDate()"></select>
                                                         </div>
                                                     </td>
                                                 </tr>

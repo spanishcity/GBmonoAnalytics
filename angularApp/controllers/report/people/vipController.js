@@ -197,6 +197,15 @@
                 initAge();
                 initArea();
                 catory();
+                clickFilter();
+            })
+        }
+
+        function clickFilter() {
+            $(".gbmono_protfolioAnalysis_date a").on("click", function () {
+                console.log("date")
+                $(this).css("border-bottom", "1px solid #249CFA");
+                $(this).siblings("a").css("border-bottom", "none");
             })
         }
 
